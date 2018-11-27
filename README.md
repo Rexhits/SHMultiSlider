@@ -16,7 +16,6 @@ Then run `pod install`.
 ```ruby
 use_frameworks!
 ```
-Then run `pod install`.
 
 
 ### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
