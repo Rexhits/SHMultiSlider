@@ -61,6 +61,7 @@
 		FDE2F06121AD06EF007E6743 = {
 			isa = PBXGroup;
 			children = (
+				FDE2F08D21AD0707007E6743 /* Sources */,
 				FDE2F06D21AD06EF007E6743 /* SHMultiSlider */,
 				FDE2F07821AD06EF007E6743 /* SHMultiSliderTests */,
 				FDE2F06C21AD06EF007E6743 /* Products */,
@@ -79,7 +80,6 @@
 		FDE2F06D21AD06EF007E6743 /* SHMultiSlider */ = {
 			isa = PBXGroup;
 			children = (
-				FDE2F08D21AD0707007E6743 /* Sources */,
 				FDE2F06E21AD06EF007E6743 /* SHMultiSlider.h */,
 				FDE2F06F21AD06EF007E6743 /* Info.plist */,
 			);

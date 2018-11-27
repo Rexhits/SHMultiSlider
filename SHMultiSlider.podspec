@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  s.name         = "SHMultislider"
+  s.name         = "SHMultiSlider"
   s.version      = "0.0.1"
   s.summary      = "[macOS] Knob with 2 sliders"
 
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :git => "https://github.com/Rexhits/SHMultislider.git", :tag => "#{s.version}" }
+  s.source       = { :git => "https://github.com/Rexhits/SHMultiSlider.git", :tag => "#{s.version}" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
