@@ -58,9 +58,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FD338DEF21AD19BD00642478 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		FDE2F06121AD06EF007E6743 = {
 			isa = PBXGroup;
 			children = (
+				FD338DEF21AD19BD00642478 /* Resources */,
 				FDE2F08D21AD0707007E6743 /* Sources */,
 				FDE2F06D21AD06EF007E6743 /* SHMultiSlider */,
 				FDE2F07821AD06EF007E6743 /* SHMultiSliderTests */,
@@ -101,7 +110,6 @@
 				FDE2F08621AD0700007E6743 /* PublicExtensions.swift */,
 				FDE2F08721AD0700007E6743 /* SHKnobRing.swift */,
 				FDE2F08821AD0700007E6743 /* SHMultiSlider.swift */,
-				FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
