@@ -62,11 +62,33 @@ import Cocoa
     
     
     /// Min of input value
-    public var min: Float = 0
+    public var min: Float = 0 {
+        didSet {
+            if min > lowerBound {
+                setLowerBoundValue(min)
+            }
+            if displayValue < min {
+                setValue(min)
+            } else {
+                setValue(displayValue)
+            }
+        }
+    }
     
     
     /// Max of input value
-    public var max: Float = 127
+    public var max: Float = 127 {
+        didSet {
+            if max < upperBound {
+                setUppderBoundValue(max)
+            }
+            if displayValue > max {
+                setValue(max)
+            } else {
+                setValue(displayValue)
+            }
+        }
+    }
     
     
     /// Lowerbound of input value, output value will be remapped from min-max to lowerBound-upperBound
@@ -195,7 +217,7 @@ import Cocoa
             path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
             valueLayer.path = path.cgPath
         }
-        delegate?.knobValueUpdated(value: Int(displayValue).map(start1: Int(lowerBound), stop1: Int(upperBound), start2: 0, stop2: 127))
+        delegate?.knobValueUpdated(value: Int(displayValue).map(start1: Int(lowerBound), stop1: Int(upperBound), start2: Int(min), stop2: Int(max)))
     }
     
     
@@ -265,7 +287,6 @@ import Cocoa
         boundPointers.move(to: NSPoint(x: bounds.width - boundPointerWidth - ringWidth / 2, y: bounds.midY))
         boundPointers.line(to: NSPoint(x: bounds.width, y: bounds.midY))
 
-//        pointer.move(to: NSPoint(x: bounds.width - pointerLength - ringWidth / 2, y: bounds.midY))
         pointer.move(to: NSPoint(x: bounds.width - pointerWidth - ringWidth / 2, y: bounds.midY))
         pointer.line(to: NSPoint(x: bounds.width, y: bounds.midY))
 

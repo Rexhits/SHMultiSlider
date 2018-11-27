@@ -13,7 +13,7 @@
     <a title="SHMultiSlider  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">SHMultiSlider Docs</a> (57% documented)</p>
+        <p><a href="index.html">SHMultiSlider Docs</a> (54% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -70,6 +70,9 @@
             
             <h1 id='shmultislider' class='heading'>SHMultiSlider</h1>
 <h2 id='a-rotary-knob-with-2-sliders-for-macos-good-for-display-value-and-range-selection' class='heading'>A rotary knob with 2 sliders for macOS, good for display value and range selection.</h2>
+
+<p><img width=200 src="https://raw.githubusercontent.com/Rexhits/SHMultiSlider/master/Demo.gif">
+As shwon, when moving the 2 sliders, the output value will be remaped to new range.</p>
 <h3 id='installation' class='heading'>Installation</h3>
 
 <p>SHMultiSlider is written in Swift 4.2, so your code has to be written in Swift 4.x due to current binary compatibility limitations.</p>
@@ -86,16 +89,45 @@
 <h3 id='example' class='heading'>Example</h3>
 <pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SHMultiSlider</span>
 
-<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">NSViewController</span><span class="p">,</span> <span class="kt">SHMultiSliderDelegate</span> <span class="p">{</span>
 
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
         <span class="k">let</span> <span class="nv">multislider</span> <span class="o">=</span> <span class="kt">SHMultiSlider</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">100</span><span class="p">))</span>
         <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">slider</span><span class="p">)</span>
+        <span class="c1">// IMPORTANT! Set delegate to self, otherwise you won't get any callback</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">delegate</span> <span class="o">=</span> <span class="k">self</span>
+        <span class="c1">// Set slider value</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+        <span class="c1">// Change the text for the label on top</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">sourceName</span> <span class="o">=</span> <span class="s">"LFO"</span>
+        <span class="c1">// Change the text for the label on bottom</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">targetName</span> <span class="o">=</span> <span class="s">"Pan"</span>
+
+        <span class="c1">// Set lowerbound of output value, output will be remapped to new range</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">slider</span><span class="o">.</span><span class="nf">setLowerBoundValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1">// Set upperbound of output value, output will be remapped to new range</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="nf">setUpperBoundValue</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+
+        <span class="c1">// Set input value range</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">min</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">multislider</span><span class="o">.</span><span class="n">max</span> <span class="o">=</span> <span class="mi">100</span>
+
+
+        <span class="c1">/// Implement delegate methods</span>
+
+        <span class="c1">// value change callback</span>
+        <span class="kd">func</span> <span class="nf">valueChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">newValue</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="c1">// boundsChangeCallback</span>
+        <span class="kd">func</span> <span class="nf">boundsUpdated</span><span class="p">(</span><span class="nv">lower</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">((</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre>
-<h4 id='note-always-make-sure-its-width-height-it-39-s-a-square-otherwise-it-may-not-display-properly' class='heading'>Note: Always make sure its width=height (it&rsquo;s a square), otherwise it may not display properly.</h4>
+<h4 id='note-always-make-sure-the-multislider-39-s-length-is-gt-100-being-too-small-may-cause-improper-display' class='heading'>Note: Always make sure the multislider&rsquo;s length is &gt;= 100, being too small may cause improper display.</h4>
 <h3 id='a-href-https-rexhits-github-io-shmultislider-doucmentation-a' class='heading'><a href="https://rexhits.github.io/SHMultiSlider/">Doucmentation</a></h3>
 
           </section>

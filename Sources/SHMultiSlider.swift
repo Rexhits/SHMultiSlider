@@ -25,7 +25,7 @@ import Cocoa
     
     
     /// delegate
-    var delegate: SHMultiSliderDelegate?
+    open var delegate: SHMultiSliderDelegate?
     
     
     
@@ -173,6 +173,7 @@ import Cocoa
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
         outputValue.stringValue = String(value)
+        delegate?.valueChanged(value)
     }
     public func knobBoundsUpdated(lower: Int, upper: Int) {
         sourceLabel.stringValue = "Min: \(lower)"
@@ -198,9 +199,28 @@ extension SHMultiSlider: SHKnobRingDelegate {
 
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
+    func valueChanged(_ newValue: Int)
     func boundsUpdated(lower: Int, upper: Int)
     func gateModeChanged(_ isGated: Bool)
     func reversedModeChanged(_ isReversed: Bool)
+}
+
+public extension SHMultiSliderDelegate {
+    func valueChanged(_ newValue: Int) {
+        
+    }
+    
+    func boundsUpdated(lower: Int, upper: Int) {
+        
+    }
+    
+    func gateModeChanged(_ isGated: Bool) {
+        
+    }
+    
+    func reversedModeChanged(_ isReversed: Bool) {
+        
+    }
 }
 
 internal class TextButton: NSTextField {
