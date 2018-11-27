@@ -12,4 +12,11 @@ pod 'SHMultiSlider'
 ```
 Then run `pod install`.
 
+#### Note: if you'd like to use it in storyboard, please add the following line to your `Podfile`:
+```ruby
+use_frameworks!
+```
+Then run `pod install`.
+
+
 ### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
