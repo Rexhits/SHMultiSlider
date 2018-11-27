@@ -3,6 +3,7 @@
 ## A rotary knob with 2 sliders for macOS, good for display value and range selection.
 
 <img width=200 src="https://raw.githubusercontent.com/Rexhits/SHMultiSlider/master/Demo.gif">
+As shwon, when moving the 2 sliders, the output value will be remaped to new range.
 
 ### Installation
 SHMultiSlider is written in Swift 4.2, so your code has to be written in Swift 4.x due to current binary compatibility limitations.
