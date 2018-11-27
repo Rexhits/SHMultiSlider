@@ -19,6 +19,8 @@ use_frameworks!
 
 ### Example
 ```swift
+import SHMultiSlider
+
 class ViewController: NSViewController {
 
     override func viewDidLoad() {
