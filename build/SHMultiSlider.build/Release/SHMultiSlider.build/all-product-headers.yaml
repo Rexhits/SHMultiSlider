@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/wangrex/Github/SHMultiSlider/build/Release/SHMultiSlider.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "SHMultiSlider-Swift.h",
+          'external-contents': "/Users/wangrex/Github/SHMultiSlider/build/Release/SHMultiSlider.framework/Versions/A/Headers/SHMultiSlider-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "SHMultiSlider.h",
+          'external-contents': "/Users/wangrex/Github/SHMultiSlider/SHMultiSlider/SHMultiSlider.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/wangrex/Github/SHMultiSlider/build/Release/SHMultiSlider.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/wangrex/Github/SHMultiSlider/build/SHMultiSlider.build/Release/SHMultiSlider.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

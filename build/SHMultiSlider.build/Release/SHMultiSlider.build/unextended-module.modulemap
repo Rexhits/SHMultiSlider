@@ -1,0 +1,10 @@
+framework module SHMultiSlider {
+  umbrella header "SHMultiSlider.h"
+
+  export *
+  module * { export * }
+}
+
+module SHMultiSlider.__Swift {
+    exclude header "SHMultiSlider-Swift.h"
+}

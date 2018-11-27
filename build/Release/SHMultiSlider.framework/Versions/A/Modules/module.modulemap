@@ -1,0 +1,11 @@
+framework module SHMultiSlider {
+  umbrella header "SHMultiSlider.h"
+
+  export *
+  module * { export * }
+}
+
+module SHMultiSlider.Swift {
+    header "SHMultiSlider-Swift.h"
+    requires objc
+}
