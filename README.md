@@ -12,4 +12,4 @@ pod 'SHMultiSlider'
 ```
 Then run `pod install`.
 
-### [Doucmentation](https://rexhits.github.io/SHMIDIKit/)
+### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
