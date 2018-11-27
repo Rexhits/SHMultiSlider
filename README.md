@@ -63,5 +63,5 @@ class ViewController: NSViewController, SHMultiSliderDelegate {
     }
 }
 ```
-#### Note: Always make sure its width=height (it's a square), otherwise it may not display properly. 
+#### Note: Always make sure the multislider's length is >= 100, being too small may cause improper display. 
 ### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
