@@ -113,6 +113,7 @@ import Cocoa
     }
     
     
+    
     private func setupUI() {
         self.wantsLayer = true
         min = 0
@@ -153,6 +154,13 @@ import Cocoa
         value = Float(newValue)
     }
     
+    
+    /// Update view bounds, call this on superview's viewDidLayout()
+    ///
+    /// - Parameter bounds: new bounds rect
+    public func updateBounds(_ bounds: CGRect) {
+        ring.updateBounds(bounds)
+    }
     
     @IBAction func gateIndicatorClicked(_ sender: TextButton) {
         guard isEnabled else {return}
