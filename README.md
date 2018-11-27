@@ -31,9 +31,21 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         let multislider = SHMultiSlider(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
         self.view.addSubview(slider)
+        // Set slider value
         multislider.setValue(100)
+        // Change the text for the label on top
         multislider.sourceName = "LFO"
+        // Change the text for the label on bottom
         multislider.targetName = "Pan"
+        
+        // Set lowerbound of output value, output will be remapped to new range
+        multislider.slider.setLowerBoundValue(0)
+        // Set upperbound of output value, output will be remapped to new range
+        multislider.setUpperBoundValue(100)
+        
+        // Set input value range
+        multislider.min = 0
+        multislider.max = 100
     }
 }
 ```
