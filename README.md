@@ -31,6 +31,9 @@ class ViewController: NSViewController {
         super.viewDidLoad()
         let multislider = SHMultiSlider(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
         self.view.addSubview(slider)
+        multislider.setValue(100)
+        multislider.sourceName = "LFO"
+        multislider.targetName = "Pan"
     }
 }
 ```
