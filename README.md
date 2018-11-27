@@ -21,7 +21,6 @@ use_frameworks!
 ```swift
 class ViewController: NSViewController {
 
-    @IBOutlet weak var slider: SHMultiSlider!
     override func viewDidLoad() {
         super.viewDidLoad()
         let multislider = SHMultiSlider(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
