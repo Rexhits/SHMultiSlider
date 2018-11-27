@@ -117,11 +117,11 @@ As shwon, when moving the 2 sliders, the output value will be remaped to new ran
         <span class="c1">/// Implement delegate methods</span>
 
         <span class="c1">// value change callback</span>
-        <span class="kd">func</span> <span class="nf">valueChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">newValue</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nf">print</span><span class="p">(</span><span class="n">newValue</span><span class="p">)</span>
+        <span class="kd">func</span> <span class="nf">valueChanged</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">SHMultiSlider</span><span class="p">?,</span> <span class="n">_</span> <span class="nv">newValue</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nf">print</span><span class="p">(</span><span class="n">sender</span><span class="p">?</span><span class="o">.</span><span class="n">identifier</span><span class="p">,</span> <span class="n">newValue</span><span class="p">)</span>
         <span class="p">}</span>
         <span class="c1">// boundsChangeCallback</span>
-        <span class="kd">func</span> <span class="nf">boundsUpdated</span><span class="p">(</span><span class="nv">lower</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">func</span> <span class="nf">boundsUpdated</span><span class="p">(</span><span class="n">_</span> <span class="nv">sender</span><span class="p">:</span> <span class="kt">SHMultiSlider</span><span class="p">?,</span> <span class="nv">lower</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">upper</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
             <span class="nf">print</span><span class="p">((</span><span class="n">lower</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span>
         <span class="p">}</span>
     <span class="p">}</span>

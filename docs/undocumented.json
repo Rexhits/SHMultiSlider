@@ -171,56 +171,56 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 202,
-      "symbol": "SHMultiSliderDelegate.valueChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.valueChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 203,
-      "symbol": "SHMultiSliderDelegate.boundsUpdated(lower:upper:)",
+      "symbol": "SHMultiSliderDelegate.boundsUpdated(_:lower:upper:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 204,
-      "symbol": "SHMultiSliderDelegate.gateModeChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.gateModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 205,
-      "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 209,
-      "symbol": "SHMultiSliderDelegate.valueChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.valueChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 213,
-      "symbol": "SHMultiSliderDelegate.boundsUpdated(lower:upper:)",
+      "symbol": "SHMultiSliderDelegate.boundsUpdated(_:lower:upper:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 217,
-      "symbol": "SHMultiSliderDelegate.gateModeChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.gateModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 221,
-      "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:)",
+      "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }

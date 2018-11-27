@@ -157,13 +157,13 @@ import Cocoa
     @IBAction func gateIndicatorClicked(_ sender: TextButton) {
         guard isEnabled else {return}
         self.isGated = !self.isGated
-        delegate?.gateModeChanged(isGated)
+        delegate?.gateModeChanged(self, isGated)
     }
     
     @IBAction func reverseIndicatorClicked(_ sender: TextButton) {
         guard isEnabled else {return}
         self.isReversed = !self.isReversed
-        delegate?.reversedModeChanged(isReversed)
+        delegate?.reversedModeChanged(self, isReversed)
     }
     
 }
@@ -173,12 +173,12 @@ import Cocoa
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
         outputValue.stringValue = String(value)
-        delegate?.valueChanged(value)
+        delegate?.valueChanged(self, value)
     }
     public func knobBoundsUpdated(lower: Int, upper: Int) {
         sourceLabel.stringValue = "Min: \(lower)"
         targetLabel.stringValue = "Max: \(upper)"
-        delegate?.boundsUpdated(lower: lower, upper: upper)
+        delegate?.boundsUpdated(self, lower: lower, upper: upper)
     }
     public func knobBoundsFinishUpdate() {
         sourceLabel.stringValue = sourceName
@@ -187,38 +187,38 @@ extension SHMultiSlider: SHKnobRingDelegate {
     
     public func gateModeChanged(_ isGated: Bool) {
         self.isGated = isGated
-        delegate?.gateModeChanged(isGated)
+        delegate?.gateModeChanged(self, isGated)
     }
     
     public func reversedModeChanged(_ isReversed: Bool) {
         self.isReversed = isReversed
-        delegate?.reversedModeChanged(isReversed)
+        delegate?.reversedModeChanged(self, isReversed)
     }
 }
 
 
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
-    func valueChanged(_ newValue: Int)
-    func boundsUpdated(lower: Int, upper: Int)
-    func gateModeChanged(_ isGated: Bool)
-    func reversedModeChanged(_ isReversed: Bool)
+    func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int)
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
+    func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
+    func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
 }
 
 public extension SHMultiSliderDelegate {
-    func valueChanged(_ newValue: Int) {
+    func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int) {
         
     }
     
-    func boundsUpdated(lower: Int, upper: Int) {
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int) {
         
     }
     
-    func gateModeChanged(_ isGated: Bool) {
+    func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool) {
         
     }
     
-    func reversedModeChanged(_ isReversed: Bool) {
+    func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool) {
         
     }
 }
