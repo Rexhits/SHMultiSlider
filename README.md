@@ -30,5 +30,5 @@ class ViewController: NSViewController {
     }
 }
 ```
-### Note: Always make sure its width=height (it's a square), otherwise it may not display properly. 
+#### Note: Always make sure its width=height (it's a square), otherwise it may not display properly. 
 ### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
