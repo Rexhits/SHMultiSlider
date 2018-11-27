@@ -12,4 +12,23 @@ pod 'SHMultiSlider'
 ```
 Then run `pod install`.
 
+#### Note: if you'd like to use it in storyboard, please add the following line to your `Podfile`:
+```ruby
+use_frameworks!
+```
+
+### Example
+```swift
+import SHMultiSlider
+
+class ViewController: NSViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let multislider = SHMultiSlider(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
+        self.view.addSubview(slider)
+    }
+}
+```
+#### Note: Always make sure its width=height (it's a square), otherwise it may not display properly. 
 ### [Doucmentation](https://rexhits.github.io/SHMultiSlider/)
