@@ -4,48 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SHMultiSlider 2.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
 		<key>SHMultiSlider.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
-		</dict>
-		<key>SHMultiSliderTests.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
-		<key>SHSlider.xcscheme_^#shared#^_</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>FD4FF78621ACCD320091935B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD7E2ED421AB59D100E2B163</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD7E2EE621AB59D300E2B163</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>FD7E2EF121AB59D300E2B163</key>
-		<dict>
-			<key>primary</key>
-			<true/>
 		</dict>
 	</dict>
 </dict>

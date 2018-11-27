@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:/Users/wangrex/Desktop/SHMultiSlider/SHMultiSlider.xcodeproj">
+      location = "self:SHMultiSlider.xcodeproj">
    </FileRef>
 </Workspace>

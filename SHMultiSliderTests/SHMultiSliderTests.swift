@@ -2,7 +2,7 @@
 //  SHMultiSliderTests.swift
 //  SHMultiSliderTests
 //
-//  Created by WangRex on 11/26/18.
+//  Created by WangRex on 11/27/18.
 //  Copyright © 2018 WangRex. All rights reserved.
 //
 
