@@ -194,6 +194,7 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 - (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)prepareForInterfaceBuilder;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
 - (void)mouseDown:(NSEvent * _Nonnull)event;
 - (void)mouseUp:(NSEvent * _Nonnull)event;
 - (void)mouseDragged:(NSEvent * _Nonnull)event;
@@ -208,6 +209,7 @@ SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @property (nonatomic) float min;
 /// Max of input value
 @property (nonatomic) float max;
+@property (nonatomic, getter=isEnabled) BOOL enabled;
 /// Created for my own use, when set to true, “G” label at the bottom will light up
 @property (nonatomic) BOOL isGated;
 /// Created for my own use, when set to true, “R” label at the bottom will light up

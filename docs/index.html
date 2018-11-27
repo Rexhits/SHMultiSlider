@@ -13,7 +13,7 @@
     <a title="SHMultiSlider  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">SHMultiSlider Docs</a> (59% documented)</p>
+        <p><a href="index.html">SHMultiSlider Docs</a> (57% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -80,6 +80,22 @@
 </code></pre>
 
 <p>Then run <code>pod install</code>.</p>
+<h4 id='note-if-you-39-d-like-to-use-it-in-storyboard-please-add-the-following-line-to-your-code-podfile-code' class='heading'>Note: if you&rsquo;d like to use it in storyboard, please add the following line to your <code>Podfile</code>:</h4>
+<pre class="highlight ruby"><code><span class="n">use_frameworks!</span>
+</code></pre>
+<h3 id='example' class='heading'>Example</h3>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">SHMultiSlider</span>
+
+<span class="kd">class</span> <span class="kt">ViewController</span><span class="p">:</span> <span class="kt">NSViewController</span> <span class="p">{</span>
+
+    <span class="k">override</span> <span class="kd">func</span> <span class="nf">viewDidLoad</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">super</span><span class="o">.</span><span class="nf">viewDidLoad</span><span class="p">()</span>
+        <span class="k">let</span> <span class="nv">multislider</span> <span class="o">=</span> <span class="kt">SHMultiSlider</span><span class="p">(</span><span class="nv">frame</span><span class="p">:</span> <span class="kt">NSRect</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="nv">width</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span> <span class="nv">height</span><span class="p">:</span> <span class="mi">100</span><span class="p">))</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">view</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">slider</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<h4 id='note-always-make-sure-its-width-height-it-39-s-a-square-otherwise-it-may-not-display-properly' class='heading'>Note: Always make sure its width=height (it&rsquo;s a square), otherwise it may not display properly.</h4>
 <h3 id='a-href-https-rexhits-github-io-shmultislider-doucmentation-a' class='heading'><a href="https://rexhits.github.io/SHMultiSlider/">Doucmentation</a></h3>
 
           </section>

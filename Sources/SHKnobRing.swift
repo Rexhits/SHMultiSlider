@@ -44,6 +44,12 @@ import Cocoa
         }
     }
     
+    @IBInspectable public override var isEnabled: Bool {
+        didSet {
+            self.tintColor = isEnabled ? self.tintColor : NSColor.disabledControlTextColor
+            self.pointerLayer.isHidden = !isEnabled
+        }
+    }
     
     /// Delegate
     public var delegate: SHKnobRingDelegate?
@@ -160,6 +166,22 @@ import Cocoa
         CATransaction.commit()
     }
     
+    func updateValueLayer() {
+        let bounds = trackLayer.bounds
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let offset = Swift.max(boundPointerWidth, ringWidth / 2)
+        let radius = Swift.min(bounds.width, bounds.height) / 2 - offset
+        let path = NSBezierPath()
+        let newValue = calculateValue(displayValue).angle
+        if displayValue < lowerBound {
+            valueLayer.path = nil
+        } else {
+            let end = displayValue < upperBound ? newValue.radiansToDegrees : upperAngle.radiansToDegrees
+            path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
+            valueLayer.path = path.cgPath
+        }
+    }
+    
     func updateValueLayer(_ newValue: CGFloat) {
         let bounds = trackLayer.bounds
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
@@ -256,7 +278,7 @@ import Cocoa
         trackLayer.bounds = bounds
         trackLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         updateTrackLayerPath()
-        
+        updateValueLayer()
         minPointerLayer.bounds = trackLayer.bounds
         minPointerLayer.position = trackLayer.position
         maxPointerLayer.bounds = trackLayer.bounds
@@ -304,6 +326,7 @@ import Cocoa
     }
     
     public override func mouseDown(with event: NSEvent) {
+        guard isEnabled else {return}
         let eventLoc = event.locationInWindow
         let localLoc = self.convert(eventLoc, from: nil)
         let clickAngle = angle(for: localLoc)
@@ -319,12 +342,14 @@ import Cocoa
     }
     
     public override func mouseUp(with event: NSEvent) {
+        guard isEnabled else {return}
         lowerClicked = false
         upperClicked = false
         delegate?.knobBoundsFinishUpdate()
     }
     
     public override func mouseDragged(with event: NSEvent) {
+        guard isEnabled else {return}
         let eventLoc = event.locationInWindow
         let localLoc = self.convert(eventLoc, from: nil)
         var clickAngle = angle(for: localLoc)

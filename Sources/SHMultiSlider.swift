@@ -23,6 +23,7 @@ import Cocoa
     private let bundle = Bundle(for: SHMultiSlider.self)
     
     
+    
     /// delegate
     var delegate: SHMultiSliderDelegate?
     
@@ -70,6 +71,13 @@ import Cocoa
         }
     }
     
+    @IBInspectable open override var isEnabled: Bool {
+        didSet {
+            ring.isEnabled = isEnabled
+            self.gatedIndicator.textColor = isEnabled ? NSColor.labelColor : NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
+            self.reverseIndicator.textColor = isEnabled ? NSColor.labelColor : NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
+        }
+    }
     
     /// Created for my own use, when set to true, "G" label at the bottom will light up
     @IBInspectable public var isGated: Bool = false {
@@ -110,7 +118,12 @@ import Cocoa
         min = 0
         max = 127
         ring.delegate = self
-        self.contentView.frame = self.bounds
+        let length = Swift.min(self.bounds.width, self.bounds.height)
+        self.contentView.frame = NSRect(x: 0, y: 0, width: length, height: length)
+        self.isEnabled = true
+        ring.reset()
+        sourceName = "Source"
+        targetName = "Target"
         ring.updateBounds(self.contentView.frame)
     }
     
@@ -142,11 +155,13 @@ import Cocoa
     
     
     @IBAction func gateIndicatorClicked(_ sender: TextButton) {
+        guard isEnabled else {return}
         self.isGated = !self.isGated
         delegate?.gateModeChanged(isGated)
     }
     
     @IBAction func reverseIndicatorClicked(_ sender: TextButton) {
+        guard isEnabled else {return}
         self.isReversed = !self.isReversed
         delegate?.reversedModeChanged(isReversed)
     }
