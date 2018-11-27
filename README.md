@@ -25,12 +25,14 @@ use_frameworks!
 ```swift
 import SHMultiSlider
 
-class ViewController: NSViewController {
+class ViewController: NSViewController, SHMultiSliderDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let multislider = SHMultiSlider(frame: NSRect(x: 0, y: 0, width: 100, height: 100))
         self.view.addSubview(slider)
+        // IMPORTANT! Set delegate to self, otherwise you won't get any callback
+        multislider.delegate = self
         // Set slider value
         multislider.setValue(100)
         // Change the text for the label on top
@@ -46,6 +48,18 @@ class ViewController: NSViewController {
         // Set input value range
         multislider.min = 0
         multislider.max = 100
+        
+        
+        /// Implement delegate methods
+        
+        // value change callback
+        func valueChanged(_ newValue: Int) {
+            print(newValue)
+        }
+        // boundsChangeCallback
+        func boundsUpdated(lower: Int, upper: Int) {
+            print((lower, upper))
+        }
     }
 }
 ```
