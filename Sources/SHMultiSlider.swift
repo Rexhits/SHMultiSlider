@@ -8,6 +8,8 @@
 
 import Cocoa
 
+
+/// A multislider panel, contains a ring, 2 labels and an output value display
 @IBDesignable open class SHMultiSlider: NSControl {
     private let nibName = "SHMultiSlider"
     @IBOutlet weak var contentView: NSView!
@@ -20,6 +22,8 @@ import Cocoa
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
+    
+    /// delegate
     var delegate: SHMultiSliderDelegate?
     
     
@@ -29,12 +33,17 @@ import Cocoa
         setupUI()
     }
     
-    var sourceName: String = "Source" {
+    
+    /// Text for the label at the top
+    public var sourceName: String = "Source" {
         didSet {
             sourceLabel.stringValue = sourceName
         }
     }
-    var targetName: String = "Target" {
+    
+    
+    /// Text for the label at the bottom
+    public var targetName: String = "Target" {
         didSet {
             targetLabel.stringValue = targetName
         }
@@ -45,11 +54,16 @@ import Cocoa
             ring.setValue(value)
         }
     }
+    
+    
+    /// Min of input value
     @IBInspectable public var min: Float = 0 {
         didSet {
             ring.min = min
         }
     }
+    
+    /// Max of input value
     @IBInspectable public var max: Float = 127 {
         didSet {
             ring.max = max
@@ -57,16 +71,20 @@ import Cocoa
     }
     
     
+    /// Created for my own use, when set to true, "G" label at the bottom will light up
     @IBInspectable public var isGated: Bool = false {
         didSet {
             gatedIndicator.textColor = isGated ? NSColor.red: NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
         }
     }
+    
+    /// Created for my own use, when set to true, "R" label at the bottom will light up
     @IBInspectable public var isReversed: Bool = false {
         didSet {
             reverseIndicator.textColor = isReversed ? NSColor.orange: NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
         }
     }
+    
     
     open override func layoutSubtreeIfNeeded() {
         ring.updateBounds(self.contentView.bounds)
@@ -100,17 +118,28 @@ import Cocoa
         return NSSize(width: 100, height: 100)
     }
     
+    /// Set upper bound's value
+    ///
+    /// - Parameter newValue: new upper bound value, output value will be remapped from min-max to lowerBound-upperBound
     public func setUpperBoundValue(_ newValue: Int) {
         ring.setUppderBoundValue(Float(newValue))
     }
     
+    /// Set lower bound's value
+    ///
+    /// - Parameter newValue: new lower bound value, output value will be remapped from min-max to lowerBound-upperBound
     public func setLowerBoundValue(_ newValue: Int) {
         ring.setLowerBoundValue(Float(newValue))
     }
     
+    
+    /// Set value for the ring's value pointer
+    ///
+    /// - Parameter newValue: input value to be displayed
     public func setValue(_ newValue: Int) {
         value = Float(newValue)
     }
+    
     
     @IBAction func gateIndicatorClicked(_ sender: TextButton) {
         self.isGated = !self.isGated
@@ -124,6 +153,8 @@ import Cocoa
     
 }
 
+
+// MARK: - Implementations for SHKnobRing's delegate
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
         outputValue.stringValue = String(value)
@@ -149,6 +180,8 @@ extension SHMultiSlider: SHKnobRingDelegate {
     }
 }
 
+
+/// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
     func boundsUpdated(lower: Int, upper: Int)
     func gateModeChanged(_ isGated: Bool)

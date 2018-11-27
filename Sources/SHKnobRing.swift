@@ -8,7 +8,10 @@
 
 import Cocoa
 
+
+/// A knob-like multislider, contains 1 value ring, 1 value pointer and a pair of bound-selector
 @IBDesignable public class SHKnobRing: NSControl {
+    
     
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -26,17 +29,23 @@ import Cocoa
         setupUI()
     }
     
+    
+    /// Unused
     public var isGated: Bool = false {
         didSet {
             delegate?.gateModeChanged(isGated)
         }
     }
+    
+    /// Unused
     public var isReversed: Bool = false {
         didSet {
             delegate?.reversedModeChanged(isReversed)
         }
     }
     
+    
+    /// Delegate
     public var delegate: SHKnobRingDelegate?
     
     private let trackLayer = CAShapeLayer()
@@ -45,41 +54,56 @@ import Cocoa
     private let maxPointerLayer = CAShapeLayer()
     private let valueLayer = CAShapeLayer()
     
-    var min: Float = 0
     
-    var max: Float = 127
+    /// Min of input value
+    public var min: Float = 0
     
+    
+    /// Max of input value
+    public var max: Float = 127
+    
+    
+    /// Lowerbound of input value, output value will be remapped from min-max to lowerBound-upperBound
     private var lowerBound: Float = 0
     
+    /// Upperbound of input value, output value will be remapped from min-max to lowerBound-upperBound
     private var upperBound: Float = 127
     
     
+    /// Value displayed on screen
     private (set) var displayValue: Float = 0
     
     var lowerClicked = false
     var upperClicked = false
     
-    var ringColor: NSColor = .orange {
+    
+    /// Color of the ring outline
+    public var ringColor: NSColor = .orange {
         didSet {
             trackLayer.strokeColor = ringColor.cgColor
         }
     }
     
     
-    var tintColor: NSColor = .orange {
+    /// Color of the value ring
+    public var tintColor: NSColor = .orange {
         didSet {
             valueLayer.strokeColor = tintColor.cgColor
         }
     }
     
-    var pointerColor: NSColor = .white {
+    
+    /// Color of the value pointer
+    public var pointerColor: NSColor = .white {
         didSet {
             minPointerLayer.strokeColor = pointerColor.cgColor
             maxPointerLayer.strokeColor = pointerColor.cgColor
         }
     }
     
-    var ringWidth: CGFloat = 5 {
+    
+    /// Line width for the ring outline, note that value ring's line width will always be ringWidth + 2
+    public var ringWidth: CGFloat = 5 {
         didSet {
             trackLayer.lineWidth = ringWidth
             valueLayer.lineWidth = ringWidth + 2
@@ -87,26 +111,17 @@ import Cocoa
         }
     }
     
-    var startAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees {
-        didSet {
-            updateTrackLayerPath()
-        }
-    }
-    
-    var endAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees {
-        didSet {
-            updateTrackLayerPath()
-        }
-    }
-    
-    var pointerWidth: CGFloat = 6 {
+    /// Line Width for the value pointer
+    public var pointerWidth: CGFloat = 6 {
         didSet {
             pointerLayer.lineWidth = pointerWidth
             updatePointerLayerPath()
         }
     }
     
-    var boundPointerWidth: CGFloat = 4 {
+    
+    /// Line width for the lower and upper bounds pointers
+    public var boundPointerWidth: CGFloat = 4 {
         didSet {
             minPointerLayer.lineWidth = boundPointerWidth
             maxPointerLayer.lineWidth = boundPointerWidth
@@ -115,9 +130,27 @@ import Cocoa
         }
     }
     
+    /// Start angle of the ring, default is 247.5˚(11/8*pi), note that this has to be in degree instead of radians
+    public var startAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees {
+        didSet {
+            updateTrackLayerPath()
+        }
+    }
+    
+    /// Engle angle of the ring, default is -67.5˚ (-3/8*pi), note that this has to be in degree instead of radians
+    public var endAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees {
+        didSet {
+            updateTrackLayerPath()
+        }
+    }
+    
+    
+    
+    
     private var lowerAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
     private var upperAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees
     private var valueAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
+    
     
     func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
 //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
@@ -145,7 +178,12 @@ import Cocoa
     
     
     
-    func setValue(_ newValue: Float, animated: Bool = false) {
+    /// Set value for value pointer
+    ///
+    /// - Parameters:
+    ///   - newValue: input value to be displayed
+    ///   - animated: unused
+    public func setValue(_ newValue: Float, animated: Bool = false) {
         let cal = calculateValue(newValue)
         displayValue = cal.value
         setPointerAngle(cal.angle, pointerLayer)
@@ -153,14 +191,22 @@ import Cocoa
         valueAngle = cal.angle
     }
     
-    func setLowerBoundValue(_ newValue: Float) {
+    
+    /// Set lower bound's value
+    ///
+    /// - Parameter newValue: new lower bound value, output value will be remapped from min-max to lowerBound-upperBound
+    public func setLowerBoundValue(_ newValue: Float) {
         let cal = calculateValue(newValue)
         lowerBound = cal.value
         setPointerAngle(cal.angle, minPointerLayer)
         lowerAngle = cal.angle
     }
     
-    func setUppderBoundValue(_ newValue: Float) {
+    
+    /// Set upper bound's value
+    ///
+    /// - Parameter newValue: new upper bound value, output value will be remapped from min-max to lowerBound-upperBound
+    public func setUppderBoundValue(_ newValue: Float) {
         let cal = calculateValue(newValue)
         upperBound = cal.value
         setPointerAngle(cal.angle, maxPointerLayer)
@@ -248,11 +294,13 @@ import Cocoa
         
     }
     
+    
+    /// Reset: displayValue= min, lowerBound = min, upperBound = max
     public func reset() {
-        setLowerBoundValue(0)
-        setUppderBoundValue(127)
-        delegate?.knobBoundsUpdated(lower: 0, upper: 127)
-        setValue(0)
+        setLowerBoundValue(min)
+        setUppderBoundValue(max)
+        delegate?.knobBoundsUpdated(lower: Int(min), upper: Int(min))
+        setValue(min)
     }
     
     public override func mouseDown(with event: NSEvent) {
@@ -322,6 +370,7 @@ import Cocoa
     
 }
 
+// Delegate methods for SHKnobRing
 public protocol SHKnobRingDelegate {
     func knobValueUpdated(value: Int)
     func knobBoundsUpdated(lower: Int, upper: Int)

@@ -8,8 +8,10 @@
 
 import Cocoa
 
+
 public extension NSBezierPath {
     
+    /// Create cgPath for NSBezierPath, same function as on iOS
     public var cgPath: CGPath {
         let path = CGMutablePath()
         var points = [CGPoint](repeating: .zero, count: 3)
@@ -32,7 +34,17 @@ public extension NSBezierPath {
     }
 }
 
+
 extension FloatingPoint {
+    
+    /// Map a value to a new range
+    ///
+    /// - Parameters:
+    ///   - start1: old min
+    ///   - stop1: old max
+    ///   - start2: new min
+    ///   - stop2: new max
+    /// - Returns: Value in new range
     func map(start1: Self, stop1: Self, start2: Self, stop2: Self) -> Self {
         var output = start2 + (stop2 - start2) * ((self - start1) / (stop1 - start1))
         output = output < min(start2, stop2) ? min(start2, stop2) : output
@@ -43,6 +55,14 @@ extension FloatingPoint {
 }
 
 extension BinaryInteger {
+    /// Map a value to a new range
+    ///
+    /// - Parameters:
+    ///   - start1: old min
+    ///   - stop1: old max
+    ///   - start2: new min
+    ///   - stop2: new max
+    /// - Returns: Value in new range
     func map(start1: Self, stop1: Self, start2: Self, stop2: Self) -> Self {
         let s1 = Double(start1)
         let e1 = Double(stop1)
@@ -57,10 +77,14 @@ extension BinaryInteger {
 
 
 public extension BinaryInteger {
+    
+    /// Convert degree to radians
     var degreesToRadians: CGFloat { return CGFloat(Int(self)) * .pi / 180 }
 }
 
 public extension FloatingPoint {
+    /// Convert degree to radians
     var degreesToRadians: Self { return self * .pi / 180 }
+    /// Convert radians to degree
     var radiansToDegrees: Self { return self * 180 / .pi }
 }

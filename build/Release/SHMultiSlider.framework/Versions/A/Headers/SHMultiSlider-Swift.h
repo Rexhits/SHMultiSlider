@@ -188,6 +188,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 @class NSCoder;
 @class NSEvent;
 
+/// A knob-like multislider, contains 1 value ring, 1 value pointer and a pair of bound-selector
 SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 @interface SHKnobRing : NSControl
 - (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
@@ -199,12 +200,17 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 @end
 
 
+/// A multislider panel, contains a ring, 2 labels and an output value display
 SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @interface SHMultiSlider : NSControl
 - (void)prepareForInterfaceBuilder;
+/// Min of input value
 @property (nonatomic) float min;
+/// Max of input value
 @property (nonatomic) float max;
+/// Created for my own use, when set to true, “G” label at the bottom will light up
 @property (nonatomic) BOOL isGated;
+/// Created for my own use, when set to true, “R” label at the bottom will light up
 @property (nonatomic) BOOL isReversed;
 - (void)layoutSubtreeIfNeeded;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)decoder OBJC_DESIGNATED_INITIALIZER;
