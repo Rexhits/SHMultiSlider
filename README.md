@@ -53,11 +53,11 @@ class ViewController: NSViewController, SHMultiSliderDelegate {
         /// Implement delegate methods
         
         // value change callback
-        func valueChanged(_ newValue: Int) {
-            print(newValue)
+        func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int) {
+            print(sender?.identifier, newValue)
         }
         // boundsChangeCallback
-        func boundsUpdated(lower: Int, upper: Int) {
+        func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int) {
             print((lower, upper))
         }
     }
