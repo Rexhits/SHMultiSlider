@@ -56,7 +56,11 @@ import Cocoa
     }
     
     /// Remap output value based on upper/lower bounds, default = true
-    public var valueNeedsRemap: Bool = true
+    public var valueNeedsRemap: Bool = true {
+        didSet {
+            ring.valueNeedsRemap = valueNeedsRemap
+        }
+    }
     
     @IBInspectable public var ringColor: NSColor = .orange {
         didSet {
@@ -152,7 +156,6 @@ import Cocoa
         }
     }
     
-    
     open override func layoutSubtreeIfNeeded() {
         ring.updateBounds(self.contentView.bounds)
     }
@@ -241,6 +244,9 @@ import Cocoa
         delegate?.reversedModeChanged(self, isReversed)
     }
     
+    public func setBipolarMode(_ state: Bool) {
+        ring.bipolarBounds = state
+    }
 }
 
 
@@ -273,6 +279,14 @@ extension SHMultiSlider: SHKnobRingDelegate {
         self.isReversed = isReversed
         delegate?.reversedModeChanged(self, isReversed)
     }
+    
+    public func bipolarBoundsModeChanged(_ isBipolar: Bool) {
+        delegate?.bipolarBoundsModeChanged(self, isBipolar)
+    }
+    
+    public func remapModeChanged(_ needsRemap: Bool) {
+        self.valueNeedsRemap = needsRemap
+    }
 }
 
 
@@ -282,6 +296,8 @@ public protocol SHMultiSliderDelegate {
     func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
+    func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool)
+    func remapModeChanged(_ sender: SHMultiSlider?, _ needsRemap: Bool)
 }
 
 public extension SHMultiSliderDelegate {
