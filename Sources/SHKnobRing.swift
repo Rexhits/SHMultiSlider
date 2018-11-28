@@ -50,7 +50,7 @@ import Cocoa
     @IBInspectable public override var isEnabled: Bool {
         didSet {
             self.tintColor = isEnabled ? self.tintColor : NSColor.disabledControlTextColor
-            self.pointerLayer.isHidden = !isEnabled
+            self.valuePointerLayer.isHidden = !isEnabled
         }
     }
     
@@ -58,9 +58,9 @@ import Cocoa
     public var delegate: SHKnobRingDelegate?
     
     private let trackLayer = CAShapeLayer()
-    private let pointerLayer = CAShapeLayer()
-    private let minPointerLayer = CAShapeLayer()
-    private let maxPointerLayer = CAShapeLayer()
+    private let valuePointerLayer = CAShapeLayer()
+    private let lowerboundPointerLayer = CAShapeLayer()
+    private let upperboundPointerLayer = CAShapeLayer()
     private let valueLayer = CAShapeLayer()
     
     
@@ -123,12 +123,18 @@ import Cocoa
         }
     }
     
-    
     /// Color of the value pointer
-    public var pointerColor: NSColor = .white {
+    public var valuePointerColor: NSColor = .red {
         didSet {
-            minPointerLayer.strokeColor = pointerColor.cgColor
-            maxPointerLayer.strokeColor = pointerColor.cgColor
+            valuePointerLayer.strokeColor = valuePointerColor.cgColor
+        }
+    }
+    
+    /// Color of the max/min pointer
+    public var boundPointerColor: NSColor = .white {
+        didSet {
+            lowerboundPointerLayer.strokeColor = boundPointerColor.cgColor
+            upperboundPointerLayer.strokeColor = boundPointerColor.cgColor
         }
     }
     
@@ -145,7 +151,7 @@ import Cocoa
     /// Line Width for the value pointer
     public var pointerWidth: CGFloat = 6 {
         didSet {
-            pointerLayer.lineWidth = pointerWidth
+            valuePointerLayer.lineWidth = pointerWidth
             updatePointerLayerPath()
         }
     }
@@ -154,8 +160,8 @@ import Cocoa
     /// Line width for the lower and upper bounds pointers
     public var boundPointerWidth: CGFloat = 4 {
         didSet {
-            minPointerLayer.lineWidth = boundPointerWidth
-            maxPointerLayer.lineWidth = boundPointerWidth
+            lowerboundPointerLayer.lineWidth = boundPointerWidth
+            upperboundPointerLayer.lineWidth = boundPointerWidth
             updateTrackLayerPath()
             updatePointerLayerPath()
         }
@@ -241,10 +247,10 @@ import Cocoa
                 v = upperBound
             }
             let calV = calculateValue(v)
-            setPointerAngle(calV.angle, pointerLayer)
+            setPointerAngle(calV.angle, valuePointerLayer)
             valueAngle = calV.angle
         } else {
-            setPointerAngle(cal.angle, pointerLayer)
+            setPointerAngle(cal.angle, valuePointerLayer)
             valueAngle = cal.angle
         }
         displayValue = cal.value
@@ -259,7 +265,7 @@ import Cocoa
     public func setLowerBoundValue(_ newValue: Float) {
         let cal = calculateValue(newValue)
         lowerBound = cal.value
-        setPointerAngle(cal.angle, minPointerLayer)
+        setPointerAngle(cal.angle, lowerboundPointerLayer)
         lowerAngle = cal.angle
     }
     
@@ -270,7 +276,7 @@ import Cocoa
     public func setUppderBoundValue(_ newValue: Float) {
         let cal = calculateValue(newValue)
         upperBound = cal.value
-        setPointerAngle(cal.angle, maxPointerLayer)
+        setPointerAngle(cal.angle, upperboundPointerLayer)
         upperAngle = cal.angle
     }
     
@@ -307,9 +313,9 @@ import Cocoa
         pointer.move(to: NSPoint(x: bounds.width - pointerWidth - ringWidth / 2, y: bounds.midY))
         pointer.line(to: NSPoint(x: bounds.width, y: bounds.midY))
 
-        minPointerLayer.path = boundPointers.cgPath
-        maxPointerLayer.path = boundPointers.cgPath
-        pointerLayer.path = pointer.cgPath
+        lowerboundPointerLayer.path = boundPointers.cgPath
+        upperboundPointerLayer.path = boundPointers.cgPath
+        valuePointerLayer.path = pointer.cgPath
     }
     
     func updateBounds(_ bounds: CGRect) {
@@ -317,12 +323,12 @@ import Cocoa
         trackLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         updateTrackLayerPath()
         updateValueLayer()
-        minPointerLayer.bounds = trackLayer.bounds
-        minPointerLayer.position = trackLayer.position
-        maxPointerLayer.bounds = trackLayer.bounds
-        maxPointerLayer.position = trackLayer.position
-        pointerLayer.bounds = trackLayer.bounds
-        pointerLayer.position = trackLayer.position
+        lowerboundPointerLayer.bounds = trackLayer.bounds
+        lowerboundPointerLayer.position = trackLayer.position
+        upperboundPointerLayer.bounds = trackLayer.bounds
+        upperboundPointerLayer.position = trackLayer.position
+        valuePointerLayer.bounds = trackLayer.bounds
+        valuePointerLayer.position = trackLayer.position
         valueLayer.bounds = trackLayer.bounds
         valueLayer.position = trackLayer.position
         
@@ -333,13 +339,13 @@ import Cocoa
         wantsLayer = true
         valueLayer.fillColor = NSColor.clear.cgColor
         trackLayer.fillColor = NSColor.black.withAlphaComponent(0.2).cgColor
-        minPointerLayer.fillColor = NSColor.clear.cgColor
-        maxPointerLayer.fillColor = NSColor.clear.cgColor
+        lowerboundPointerLayer.fillColor = NSColor.clear.cgColor
+        upperboundPointerLayer.fillColor = NSColor.clear.cgColor
         updateBounds(bounds)
         ringColor = NSColor.darkGray
-        pointerColor = NSColor.white
+        boundPointerColor = NSColor.white
         tintColor = NSColor.orange
-        pointerLayer.strokeColor = NSColor.red.cgColor
+        valuePointerColor = NSColor.red
         setLowerBoundValue(0)
         setUppderBoundValue(127)
         setValue(64)
@@ -348,9 +354,9 @@ import Cocoa
         boundPointerWidth = 4
         layer?.addSublayer(trackLayer)
         layer?.addSublayer(valueLayer)
-        layer?.addSublayer(minPointerLayer)
-        layer?.addSublayer(maxPointerLayer)
-        layer?.addSublayer(pointerLayer)
+        layer?.addSublayer(lowerboundPointerLayer)
+        layer?.addSublayer(upperboundPointerLayer)
+        layer?.addSublayer(valuePointerLayer)
         
     }
     

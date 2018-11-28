@@ -56,6 +56,58 @@ import Cocoa
         }
     }
     
+    
+    @IBInspectable public var ringColor: NSColor = .orange {
+        didSet {
+            ring.ringColor = ringColor
+        }
+    }
+    
+    
+    /// Color of the value ring
+    @IBInspectable public var tintColor: NSColor = .orange {
+        didSet {
+            ring.tintColor = tintColor
+        }
+    }
+    
+    /// Color of the value pointer
+    @IBInspectable public var valuePointerColor: NSColor = .red {
+        didSet {
+            ring.valuePointerColor = valuePointerColor
+        }
+    }
+    
+    /// Color of the max/min pointer
+    @IBInspectable public var boundPointerColor: NSColor = .white {
+        didSet {
+            ring.boundPointerColor = boundPointerColor
+        }
+    }
+    
+    
+    /// Line width for the ring outline, note that value ring's line width will always be ringWidth + 2
+    @IBInspectable public var ringWidth: CGFloat = 5 {
+        didSet {
+            ring.ringWidth = ringWidth
+        }
+    }
+    
+    /// Line Width for the value pointer
+    @IBInspectable public var pointerWidth: CGFloat = 6 {
+        didSet {
+            ring.pointerWidth = pointerWidth
+        }
+    }
+    
+    
+    /// Line width for the lower and upper bounds pointers
+    @IBInspectable public var boundPointerWidth: CGFloat = 4 {
+        didSet {
+            ring.boundPointerWidth = boundPointerWidth
+        }
+    }
+    
     /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
     @IBInspectable public var hardclipValuePointer: Bool = true {
         didSet {
