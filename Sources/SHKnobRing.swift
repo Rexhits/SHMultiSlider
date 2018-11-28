@@ -408,11 +408,13 @@ import Cocoa
         if lowerClicked {
             guard value < upperBound else {return}
             setLowerBoundValue(value)
+            setValue(displayValue)
             updateValueLayer(valueAngle)
             delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
         } else if upperClicked {
             guard value > lowerBound else {return}
             setUppderBoundValue(value)
+            setValue(displayValue)
             updateValueLayer(valueAngle)
             delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
         }

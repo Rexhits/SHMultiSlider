@@ -56,6 +56,12 @@ import Cocoa
         }
     }
     
+    /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
+    @IBInspectable public var hardclipValuePointer: Bool = true {
+        didSet {
+            ring.hardclipValuePointer = hardclipValuePointer
+        }
+    }
     
     /// Min of input value
     @IBInspectable public var min: Float = 0 {
@@ -126,6 +132,7 @@ import Cocoa
         sourceName = "Source"
         targetName = "Target"
         ring.updateBounds(self.contentView.frame)
+        hardclipValuePointer = true
     }
     
     open override var intrinsicContentSize: NSSize {

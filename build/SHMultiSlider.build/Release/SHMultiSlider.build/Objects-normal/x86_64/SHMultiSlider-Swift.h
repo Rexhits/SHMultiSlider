@@ -220,6 +220,8 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @interface SHMultiSlider : NSControl
 - (void)prepareForInterfaceBuilder;
+/// Value pointer will jump within upper/lower bounds when it’s true, else it will jump between min/map. Default is true
+@property (nonatomic) BOOL hardclipValuePointer;
 /// Min of input value
 @property (nonatomic) float min;
 /// Max of input value
