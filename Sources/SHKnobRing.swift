@@ -95,10 +95,10 @@ import Cocoa
     
     
     /// Lowerbound of input value, output value will be remapped from min-max to lowerBound-upperBound
-    private var lowerBound: Float = 0
+    private(set) var lowerBound: Float = 0
     
     /// Upperbound of input value, output value will be remapped from min-max to lowerBound-upperBound
-    private var upperBound: Float = 127
+    private(set) var upperBound: Float = 127
     
     
     /// Value displayed on screen
@@ -190,7 +190,7 @@ import Cocoa
     
     
     func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
-//        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
+        //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         toPointerLayer.setAffineTransform(CGAffineTransform(rotationAngle: newAngle))
@@ -226,10 +226,12 @@ import Cocoa
             path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
             valueLayer.path = path.cgPath
         }
-        delegate?.knobValueUpdated(value: Int(displayValue).map(start1: Int(lowerBound), stop1: Int(upperBound), start2: Int(min), stop2: Int(max)))
+        delegate?.knobValueUpdated(value: Int(displayValue))
     }
     
-    
+    public func getBounds() -> (lower: Int, upper: Int) {
+        return (lower: Int(round(lowerBound)), upper: Int(round(upperBound)))
+    }
     
     /// Set value for value pointer
     ///
@@ -309,10 +311,10 @@ import Cocoa
         
         boundPointers.move(to: NSPoint(x: bounds.width - boundPointerWidth - ringWidth / 2, y: bounds.midY))
         boundPointers.line(to: NSPoint(x: bounds.width, y: bounds.midY))
-
+        
         pointer.move(to: NSPoint(x: bounds.width - pointerWidth - ringWidth / 2, y: bounds.midY))
         pointer.line(to: NSPoint(x: bounds.width, y: bounds.midY))
-
+        
         lowerboundPointerLayer.path = boundPointers.cgPath
         upperboundPointerLayer.path = boundPointers.cgPath
         valuePointerLayer.path = pointer.cgPath

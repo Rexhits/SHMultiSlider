@@ -23,7 +23,6 @@ import Cocoa
     private let bundle = Bundle(for: SHMultiSlider.self)
     
     
-    
     /// delegate
     open var delegate: SHMultiSliderDelegate?
     
@@ -56,6 +55,8 @@ import Cocoa
         }
     }
     
+    /// Remap output value based on upper/lower bounds, default = true
+    public var valueNeedsRemap: Bool = true
     
     @IBInspectable public var ringColor: NSColor = .orange {
         didSet {
@@ -205,6 +206,13 @@ import Cocoa
         ring.setLowerBoundValue(Float(newValue))
     }
     
+    public func getLowerBoundValue() -> Int {
+        return Int(ring.lowerBound)
+    }
+    
+    public func getUpperBoundValue() -> Int {
+        return Int(ring.upperBound)
+    }
     
     /// Set value for the ring's value pointer
     ///
@@ -239,8 +247,12 @@ import Cocoa
 // MARK: - Implementations for SHKnobRing's delegate
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
-        outputValue.stringValue = String(value)
-        delegate?.valueChanged(self, value)
+        var output = value
+        if valueNeedsRemap {
+            output = value.map(start1: Int(ring.lowerBound), stop1: Int(ring.upperBound), start2: Int(min), stop2: Int(max))
+        }
+        outputValue.stringValue = String(output)
+        delegate?.valueChanged(self, output)
     }
     public func knobBoundsUpdated(lower: Int, upper: Int) {
         sourceLabel.stringValue = "Min: \(lower)"
