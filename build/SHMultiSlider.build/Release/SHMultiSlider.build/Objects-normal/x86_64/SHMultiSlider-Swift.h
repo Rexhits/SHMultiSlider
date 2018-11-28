@@ -220,6 +220,19 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @interface SHMultiSlider : NSControl
 - (void)prepareForInterfaceBuilder;
+@property (nonatomic, strong) NSColor * _Nonnull ringColor;
+/// Color of the value ring
+@property (nonatomic, strong) NSColor * _Nonnull tintColor;
+/// Color of the value pointer
+@property (nonatomic, strong) NSColor * _Nonnull valuePointerColor;
+/// Color of the max/min pointer
+@property (nonatomic, strong) NSColor * _Nonnull boundPointerColor;
+/// Line width for the ring outline, note that value ring’s line width will always be ringWidth + 2
+@property (nonatomic) CGFloat ringWidth;
+/// Line Width for the value pointer
+@property (nonatomic) CGFloat pointerWidth;
+/// Line width for the lower and upper bounds pointers
+@property (nonatomic) CGFloat boundPointerWidth;
 /// Value pointer will jump within upper/lower bounds when it’s true, else it will jump between min/map. Default is true
 @property (nonatomic) BOOL hardclipValuePointer;
 /// Min of input value
