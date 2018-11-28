@@ -199,6 +199,7 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 @property (nonatomic) BOOL isGated;
 /// Unused
 @property (nonatomic) BOOL isReversed;
+@property (nonatomic) BOOL bipolarBounds;
 /// Value pointer will jump within upper/lower bounds when it’s true, else it will jump between min/map. Default is true
 @property (nonatomic) BOOL hardclipValuePointer;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
@@ -210,6 +211,7 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 @property (nonatomic, strong) NSColor * _Nonnull ringColor;
 /// Color of the value ring
 @property (nonatomic, strong) NSColor * _Nonnull tintColor;
+- (void)rightMouseDown:(NSEvent * _Nonnull)event;
 - (void)mouseDown:(NSEvent * _Nonnull)event;
 - (void)mouseUp:(NSEvent * _Nonnull)event;
 - (void)mouseDragged:(NSEvent * _Nonnull)event;
