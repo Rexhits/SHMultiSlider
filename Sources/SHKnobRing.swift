@@ -31,18 +31,21 @@ import Cocoa
     
     
     /// Unused
-    public var isGated: Bool = false {
+    @IBInspectable public var isGated: Bool = false {
         didSet {
             delegate?.gateModeChanged(isGated)
         }
     }
     
     /// Unused
-    public var isReversed: Bool = false {
+    @IBInspectable public var isReversed: Bool = false {
         didSet {
             delegate?.reversedModeChanged(isReversed)
         }
     }
+    
+    /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
+    @IBInspectable public var hardclipValuePointer: Bool = true
     
     @IBInspectable public override var isEnabled: Bool {
         didSet {
@@ -62,7 +65,7 @@ import Cocoa
     
     
     /// Min of input value
-    public var min: Float = 0 {
+    @IBInspectable public var min: Float = 0 {
         didSet {
             if min > lowerBound {
                 setLowerBoundValue(min)
@@ -77,7 +80,7 @@ import Cocoa
     
     
     /// Max of input value
-    public var max: Float = 127 {
+    @IBInspectable public var max: Float = 127 {
         didSet {
             if max < upperBound {
                 setUppderBoundValue(max)
@@ -106,7 +109,7 @@ import Cocoa
     
     
     /// Color of the ring outline
-    public var ringColor: NSColor = .orange {
+    @IBInspectable public var ringColor: NSColor = .orange {
         didSet {
             trackLayer.strokeColor = ringColor.cgColor
         }
@@ -114,7 +117,7 @@ import Cocoa
     
     
     /// Color of the value ring
-    public var tintColor: NSColor = .orange {
+    @IBInspectable public var tintColor: NSColor = .orange {
         didSet {
             valueLayer.strokeColor = tintColor.cgColor
         }
@@ -229,10 +232,24 @@ import Cocoa
     ///   - animated: unused
     public func setValue(_ newValue: Float, animated: Bool = false) {
         let cal = calculateValue(newValue)
+        var v = newValue
+        if hardclipValuePointer {
+            if newValue < lowerBound {
+                v = lowerBound
+            }
+            if newValue > upperBound {
+                v = upperBound
+            }
+            let calV = calculateValue(v)
+            setPointerAngle(calV.angle, pointerLayer)
+            valueAngle = calV.angle
+        } else {
+            setPointerAngle(cal.angle, pointerLayer)
+            valueAngle = cal.angle
+        }
         displayValue = cal.value
-        setPointerAngle(cal.angle, pointerLayer)
         updateValueLayer(cal.angle)
-        valueAngle = cal.angle
+        
     }
     
     
