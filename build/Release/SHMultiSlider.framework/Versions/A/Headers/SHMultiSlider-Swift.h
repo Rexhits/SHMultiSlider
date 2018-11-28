@@ -186,6 +186,7 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 
 @class NSCoder;
+@class NSColor;
 @class NSEvent;
 
 /// A knob-like multislider, contains 1 value ring, 1 value pointer and a pair of bound-selector
@@ -194,7 +195,21 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 - (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)prepareForInterfaceBuilder;
+/// Unused
+@property (nonatomic) BOOL isGated;
+/// Unused
+@property (nonatomic) BOOL isReversed;
+/// Value pointer will jump within upper/lower bounds when it’s true, else it will jump between min/map. Default is true
+@property (nonatomic) BOOL hardclipValuePointer;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
+/// Min of input value
+@property (nonatomic) float min;
+/// Max of input value
+@property (nonatomic) float max;
+/// Color of the ring outline
+@property (nonatomic, strong) NSColor * _Nonnull ringColor;
+/// Color of the value ring
+@property (nonatomic, strong) NSColor * _Nonnull tintColor;
 - (void)mouseDown:(NSEvent * _Nonnull)event;
 - (void)mouseUp:(NSEvent * _Nonnull)event;
 - (void)mouseDragged:(NSEvent * _Nonnull)event;
