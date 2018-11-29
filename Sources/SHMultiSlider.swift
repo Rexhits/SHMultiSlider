@@ -225,6 +225,10 @@ import Cocoa
     }
     
     
+    public func setOutputValueLabelText(_ newText: String) {
+        outputValue.stringValue = newText
+    }
+    
     /// Update view bounds, call this on superview's viewDidLayout()
     ///
     /// - Parameter bounds: new bounds rect
