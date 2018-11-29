@@ -33,18 +33,10 @@ import Cocoa
     let popover = NSPopover()
     
     /// Unused
-    @IBInspectable public var isGated: Bool = false {
-        didSet {
-            delegate?.gateModeChanged(isGated)
-        }
-    }
+    @IBInspectable public var isGated: Bool = false
     
     /// Unused
-    @IBInspectable public var isReversed: Bool = false {
-        didSet {
-            delegate?.reversedModeChanged(isReversed)
-        }
-    }
+    @IBInspectable public var isReversed: Bool = false
     
     @IBInspectable public var bipolarBounds: Bool = false {
         didSet {
@@ -457,10 +449,12 @@ import Cocoa
     
     @objc func gateModeDidChange() {
         self.isGated = !self.isGated
+        delegate?.gateModeChanged(self.isGated)
     }
     
     @objc func reverseModeDidChange() {
         self.isReversed = !isReversed
+        delegate?.reversedModeChanged(isReversed)
     }
     
     public override func rightMouseDown(with event: NSEvent) {
