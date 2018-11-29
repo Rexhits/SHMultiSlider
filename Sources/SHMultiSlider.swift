@@ -312,7 +312,7 @@ extension SHMultiSlider: SHKnobRingDelegate {
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
     func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int)
-    func knobBoundsUpdated(lower: Int, upper: Int,_ lbb: Int,_ ubb: Int)
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int,_ lbb: Int,_ ubb: Int)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
     func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool)
