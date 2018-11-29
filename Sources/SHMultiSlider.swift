@@ -155,6 +155,7 @@ import Cocoa
         }
     }
     
+    
     open override func layoutSubtreeIfNeeded() {
         ring.updateBounds(self.contentView.bounds)
     }
@@ -255,6 +256,14 @@ import Cocoa
     
     /// Get the instance of SHKnobRing
     public func getRing() -> SHKnobRing {return ring}
+    
+    public func setLowerBipolarBound(_ newValue: Int) {
+        ring.lowerBipolarRange = Float(newValue)
+    }
+    
+    public func setUpperBipolarBound(_ newValue: Int) {
+        ring.upperBipolarRange = Float(newValue)
+    }
 }
 
 
