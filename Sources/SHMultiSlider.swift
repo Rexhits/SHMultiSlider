@@ -316,6 +316,14 @@ public extension SHMultiSliderDelegate {
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool) {
         
     }
+    
+    func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool) {
+        
+    }
+    
+    func remapModeChanged(_ sender: SHMultiSlider?, _ needsRemap: Bool) {
+        
+    }
 }
 
 internal class TextButton: NSTextField {
