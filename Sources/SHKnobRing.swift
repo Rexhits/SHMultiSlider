@@ -49,15 +49,21 @@ import Cocoa
                 valueLayer.removeFromSuperlayer()
                 valuePointerLayer.removeFromSuperlayer()
                 layer?.addSublayer(valuePointerLayer)
+                setLowerBoundValue(lowerBound)
+                setUppderBoundValue(upperBound)
                 updateBipolarBoundsLayers()
             } else {
                 layer?.addSublayer(valueLayer)
+                valueLayer.strokeColor = tintColor.cgColor
                 upperBoundLayer.removeFromSuperlayer()
                 lowerBoundLayer.removeFromSuperlayer()
             }
             
         }
     }
+    
+    var lowerBipolarRange: Float = 10
+    var upperBipolarRange: Float = 10
     
     public var valueNeedsRemap: Bool = true
     
@@ -260,14 +266,19 @@ import Cocoa
             return
         }
         autoreleasepool {
+            
             let bounds = trackLayer.bounds
             let center = CGPoint(x: bounds.midX, y: bounds.midY)
             let offset = Swift.max(boundPointerWidth, ringWidth / 2)
             let radius = Swift.min(bounds.width, bounds.height) / 2 - offset
             let lowerPath = NSBezierPath()
             let upperPath = NSBezierPath()
-            lowerPath.appendArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: lowerAngle.radiansToDegrees, clockwise: true)
-            upperPath.appendArc(withCenter: center, radius: radius, startAngle: upperAngle.radiansToDegrees, endAngle: endAngle, clockwise: true)
+            let lowS = calculateValue(lowerBound - lowerBipolarRange).angle.radiansToDegrees
+            let lowE = lowerAngle.radiansToDegrees
+            let uppS = upperAngle.radiansToDegrees
+            let uppE = calculateValue(upperBound + upperBipolarRange).angle.radiansToDegrees
+            lowerPath.appendArc(withCenter: center, radius: radius, startAngle: lowS, endAngle: lowE, clockwise: true)
+            upperPath.appendArc(withCenter: center, radius: radius, startAngle: uppS, endAngle: uppE, clockwise: true)
             lowerBoundLayer.path = lowerPath.cgPath
             upperBoundLayer.path = upperPath.cgPath
             
@@ -303,9 +314,10 @@ import Cocoa
             }
             displayValue = cal.value
             if bipolarBounds {
-                if (displayValue < lowerBound || displayValue > upperBound) {
+                if ((displayValue < lowerBound && displayValue > lowerBound - lowerBipolarRange) ||  (displayValue > upperBound && displayValue < upperBound + upperBipolarRange)) {
                     lowerBoundLayer.strokeColor = NSColor(red: 1, green: 0, blue: 0.3, alpha: 1).cgColor
                     upperBoundLayer.strokeColor = NSColor(red: 1, green: 0, blue: 0.3, alpha: 1).cgColor
+                    updateBipolarBoundsLayers()
                     delegate?.knobValueUpdated(value: Int(displayValue))
                 } else {
                     lowerBoundLayer.strokeColor = tintColor.cgColor
@@ -324,7 +336,12 @@ import Cocoa
     /// - Parameter newValue: new lower bound value, output value will be remapped from min-max to lowerBound-upperBound
     public func setLowerBoundValue(_ newValue: Float) {
         autoreleasepool {
-            let cal = calculateValue(newValue)
+            var value = newValue
+            if bipolarBounds {
+                if value >= (min+max) / 2 {value = ((min+max)/2-1)}
+                if value - lowerBipolarRange < min {value = (min+lowerBipolarRange)}
+            }
+            let cal = calculateValue(value)
             lowerBound = cal.value
             setPointerAngle(cal.angle, lowerboundPointerLayer)
             lowerAngle = cal.angle
@@ -337,7 +354,12 @@ import Cocoa
     /// - Parameter newValue: new upper bound value, output value will be remapped from min-max to lowerBound-upperBound
     public func setUppderBoundValue(_ newValue: Float) {
         autoreleasepool {
-            let cal = calculateValue(newValue)
+            var value = newValue
+            if bipolarBounds {
+                if value < (min+max) / 2 {value = ((min+max)/2+1)}
+                if value + upperBipolarRange > max {value = (max-upperBipolarRange)}
+            }
+            let cal = calculateValue(value)
             upperBound = cal.value
             setPointerAngle(cal.angle, upperboundPointerLayer)
             upperAngle = cal.angle
@@ -424,6 +446,8 @@ import Cocoa
         ringWidth = 5
         pointerWidth = 6
         boundPointerWidth = 4
+        lowerBipolarRange = 10
+        upperBipolarRange = 10
         layer?.addSublayer(trackLayer)
         //        layer?.addSublayer(valueLayer)
         layer?.addSublayer(lowerboundPointerLayer)
@@ -515,7 +539,6 @@ import Cocoa
             let eventLoc = event.locationInWindow
             let localLoc = self.convert(eventLoc, from: nil)
             var clickAngle = angle(for: localLoc)
-            
             if clickAngle > 0 {
                 clickAngle = (clickAngle - CGFloat.pi).magnitude + (startAngle.degreesToRadians - CGFloat.pi)
             } else {
@@ -534,6 +557,9 @@ import Cocoa
                 setLowerBoundValue(value)
                 setValue(displayValue)
                 updateValueLayer(valueAngle)
+                if bipolarBounds {
+                    if (lowerBipolarRange + Float(event.deltaX)) >= 1 {lowerBipolarRange += Float(event.deltaX)}
+                }
                 updateBipolarBoundsLayers()
                 delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
             } else if upperClicked {
@@ -541,6 +567,9 @@ import Cocoa
                 setUppderBoundValue(value)
                 setValue(displayValue)
                 updateValueLayer(valueAngle)
+                if bipolarBounds {
+                    if (upperBipolarRange + Float(event.deltaX)) >= 1 {upperBipolarRange += Float(event.deltaX)}
+                }
                 updateBipolarBoundsLayers()
                 delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
             }
