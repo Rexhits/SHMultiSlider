@@ -22,7 +22,6 @@ import Cocoa
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
-    
     /// delegate
     open var delegate: SHMultiSliderDelegate?
     
@@ -187,6 +186,7 @@ import Cocoa
         ring.reset()
         sourceName = "Source"
         targetName = "Target"
+        self.outputValue.stringValue = "0"
         ring.updateBounds(self.contentView.frame)
         hardclipValuePointer = true
     }
@@ -254,8 +254,10 @@ import Cocoa
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
         var output = value
-        if valueNeedsRemap {
+        if valueNeedsRemap && !ring.bipolarBounds {
             output = value.map(start1: Int(ring.lowerBound), stop1: Int(ring.upperBound), start2: Int(min), stop2: Int(max))
+        } else {
+            output = value
         }
         outputValue.stringValue = String(output)
         delegate?.valueChanged(self, output)

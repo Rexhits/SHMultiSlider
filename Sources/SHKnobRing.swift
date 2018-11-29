@@ -48,21 +48,28 @@ import Cocoa
     
     @IBInspectable public var bipolarBounds: Bool = false {
         didSet {
+            hardclipValuePointer = !bipolarBounds
             if bipolarBounds {
                 layer?.addSublayer(upperBoundLayer)
                 layer?.addSublayer(lowerBoundLayer)
                 valueLayer.removeFromSuperlayer()
+                valuePointerLayer.removeFromSuperlayer()
+                layer?.addSublayer(valuePointerLayer)
                 updateBipolarBoundsLayers()
             } else {
                 layer?.addSublayer(valueLayer)
                 upperBoundLayer.removeFromSuperlayer()
                 lowerBoundLayer.removeFromSuperlayer()
             }
-            delegate?.bipolarBoundsModeChanged(bipolarBounds)
+            
         }
     }
     
-    public var valueNeedsRemap: Bool = true
+    public var valueNeedsRemap: Bool = true {
+        didSet {
+            delegate?.remapModeChanged(valueNeedsRemap)
+        }
+    }
     
     /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
     @IBInspectable public var hardclipValuePointer: Bool = true
@@ -215,7 +222,7 @@ import Cocoa
     
     
     func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
-//        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
+        //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         toPointerLayer.setAffineTransform(CGAffineTransform(rotationAngle: newAngle))
@@ -254,7 +261,6 @@ import Cocoa
                 path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
                 valueLayer.path = path.cgPath
             }
-            delegate?.knobValueUpdated(value: Int(displayValue))
         }
     }
     
@@ -274,6 +280,7 @@ import Cocoa
             upperPath.appendArc(withCenter: center, radius: radius, startAngle: upperAngle.radiansToDegrees, endAngle: endAngle, clockwise: true)
             lowerBoundLayer.path = lowerPath.cgPath
             upperBoundLayer.path = upperPath.cgPath
+            
         }
     }
     
@@ -305,8 +312,19 @@ import Cocoa
                 valueAngle = cal.angle
             }
             displayValue = cal.value
+            if bipolarBounds {
+                if (displayValue < lowerBound || displayValue > upperBound) {
+                    lowerBoundLayer.strokeColor = NSColor(red: 1, green: 0, blue: 0.3, alpha: 1).cgColor
+                    upperBoundLayer.strokeColor = NSColor(red: 1, green: 0, blue: 0.3, alpha: 1).cgColor
+                    delegate?.knobValueUpdated(value: Int(displayValue))
+                } else {
+                    lowerBoundLayer.strokeColor = tintColor.cgColor
+                    upperBoundLayer.strokeColor = tintColor.cgColor
+                }
+            } else {
+                delegate?.knobValueUpdated(value: Int(displayValue))
+            }
             updateValueLayer(cal.angle)
-            updateBipolarBoundsLayers()
         }
     }
     
@@ -413,12 +431,11 @@ import Cocoa
         valuePointerColor = NSColor.red
         setLowerBoundValue(0)
         setUppderBoundValue(127)
-        setValue(64)
         ringWidth = 5
         pointerWidth = 6
         boundPointerWidth = 4
         layer?.addSublayer(trackLayer)
-//        layer?.addSublayer(valueLayer)
+        //        layer?.addSublayer(valueLayer)
         layer?.addSublayer(lowerboundPointerLayer)
         layer?.addSublayer(upperboundPointerLayer)
         layer?.addSublayer(valuePointerLayer)
@@ -428,6 +445,7 @@ import Cocoa
         popover.behavior = .transient
         popover.animates = true
         popover.contentViewController = popoverVC
+        setValue(64)
     }
     
     @objc func bipoloarModeDidChange() {
@@ -521,12 +539,14 @@ import Cocoa
                 setLowerBoundValue(value)
                 setValue(displayValue)
                 updateValueLayer(valueAngle)
+                updateBipolarBoundsLayers()
                 delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
             } else if upperClicked {
                 guard value > lowerBound else {return}
                 setUppderBoundValue(value)
                 setValue(displayValue)
                 updateValueLayer(valueAngle)
+                updateBipolarBoundsLayers()
                 delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
             }
         }
