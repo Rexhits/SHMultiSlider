@@ -50,6 +50,7 @@ import Cocoa
         didSet {
             hardclipValuePointer = !bipolarBounds
             valueNeedsRemap = !bipolarBounds
+            delegate?.remapModeChanged(valueNeedsRemap)
             if bipolarBounds {
                 layer?.addSublayer(upperBoundLayer)
                 layer?.addSublayer(lowerBoundLayer)
