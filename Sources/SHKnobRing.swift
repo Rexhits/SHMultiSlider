@@ -464,6 +464,7 @@ import Cocoa
     
     @objc func bipoloarModeDidChange() {
         self.bipolarBounds = !self.bipolarBounds
+        delegate?.bipolarBoundsModeChanged(self.bipolarBounds)
     }
     
     @objc func remapModeDidChange() {
