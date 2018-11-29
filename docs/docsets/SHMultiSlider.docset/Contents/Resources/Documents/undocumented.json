@@ -23,112 +23,112 @@
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 49,
+      "line": 41,
       "symbol": "SHKnobRing.bipolarBounds",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 70,
+      "line": 62,
       "symbol": "SHKnobRing.valueNeedsRemap",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 75,
+      "line": 67,
       "symbol": "SHKnobRing.isEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 285,
+      "line": 277,
       "symbol": "SHKnobRing.getBounds()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 466,
+      "line": 460,
       "symbol": "SHKnobRing.rightMouseDown(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 493,
+      "line": 487,
       "symbol": "SHKnobRing.mouseDown(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 509,
+      "line": 503,
       "symbol": "SHKnobRing.mouseUp(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 518,
+      "line": 512,
       "symbol": "SHKnobRing.mouseDragged(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 573,
+      "line": 567,
       "symbol": "SHKnobRingDelegate",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 574,
+      "line": 568,
       "symbol": "SHKnobRingDelegate.knobValueUpdated(value:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 575,
+      "line": 569,
       "symbol": "SHKnobRingDelegate.knobBoundsUpdated(lower:upper:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 576,
+      "line": 570,
       "symbol": "SHKnobRingDelegate.knobBoundsFinishUpdate()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 577,
+      "line": 571,
       "symbol": "SHKnobRingDelegate.gateModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 578,
+      "line": 572,
       "symbol": "SHKnobRingDelegate.reversedModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 579,
+      "line": 573,
       "symbol": "SHKnobRingDelegate.bipolarBoundsModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
-      "line": 580,
+      "line": 574,
       "symbol": "SHKnobRingDelegate.remapModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
