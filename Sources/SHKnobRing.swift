@@ -49,6 +49,7 @@ import Cocoa
     @IBInspectable public var bipolarBounds: Bool = false {
         didSet {
             hardclipValuePointer = !bipolarBounds
+            valueNeedsRemap = !bipolarBounds
             if bipolarBounds {
                 layer?.addSublayer(upperBoundLayer)
                 layer?.addSublayer(lowerBoundLayer)
@@ -65,11 +66,7 @@ import Cocoa
         }
     }
     
-    public var valueNeedsRemap: Bool = true {
-        didSet {
-            delegate?.remapModeChanged(valueNeedsRemap)
-        }
-    }
+    public var valueNeedsRemap: Bool = true
     
     /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
     @IBInspectable public var hardclipValuePointer: Bool = true
@@ -467,6 +464,7 @@ import Cocoa
     
     public override func rightMouseDown(with event: NSEvent) {
         popoverMenu = NSMenu()
+        popoverMenu.autoenablesItems = false
         let bipolarItem = NSMenuItem(title: "BiploarMode", action: #selector(bipoloarModeDidChange), keyEquivalent: "")
         bipolarItem.state = bipolarBounds ? .on : .off
         let remapItem = NSMenuItem(title: "Remap Output", action: #selector(remapModeDidChange), keyEquivalent: "")
@@ -475,10 +473,12 @@ import Cocoa
         gateItem.state = isGated ? .on: .off
         let reverseItem = NSMenuItem(title: "Reverse Mode", action: #selector(reverseModeDidChange), keyEquivalent: "")
         reverseItem.state = isReversed ? .on : .off
+        remapItem.isEnabled = !bipolarBounds
         popoverMenu.addItem(bipolarItem)
         popoverMenu.addItem(remapItem)
         popoverMenu.addItem(gateItem)
         popoverMenu.addItem(reverseItem)
+        
         NSMenu.popUpContextMenu(popoverMenu, with: event, for: self)
     }
     
