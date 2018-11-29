@@ -1,6 +1,6 @@
 version: "Apple Swift version 4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
 options: "1f9617b3f9e4f5de0c67cf14c20e899a"
-build_time: [1543472372, 139321000]
+build_time: [1543478784, 214879000]
 inputs:
   "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift": [9223372036, 854775807]
   "/Users/wangrex/Github/SHMultiSlider/Sources/PublicExtensions.swift": [9223372036, 854775807]
