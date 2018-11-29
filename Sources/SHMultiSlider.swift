@@ -251,6 +251,10 @@ import Cocoa
     public func setBipolarMode(_ state: Bool) {
         ring.bipolarBounds = state
     }
+    
+    
+    /// Get the instance of SHKnobRing
+    public func getRing() -> SHKnobRing {return ring}
 }
 
 
@@ -266,10 +270,10 @@ extension SHMultiSlider: SHKnobRingDelegate {
         outputValue.stringValue = String(output)
         delegate?.valueChanged(self, output)
     }
-    public func knobBoundsUpdated(lower: Int, upper: Int) {
+    public func knobBoundsUpdated(lower: Int, upper: Int,_ lbb: Int,_ ubb: Int) {
         sourceLabel.stringValue = "Min: \(lower)"
         targetLabel.stringValue = "Max: \(upper)"
-        delegate?.boundsUpdated(self, lower: lower, upper: upper)
+        delegate?.boundsUpdated(self, lower: lower, upper: upper, lbb, ubb)
     }
     public func knobBoundsFinishUpdate() {
         sourceLabel.stringValue = sourceName
@@ -299,7 +303,7 @@ extension SHMultiSlider: SHKnobRingDelegate {
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
     func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int)
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
+    func knobBoundsUpdated(lower: Int, upper: Int,_ lbb: Int,_ ubb: Int)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
     func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool)
@@ -311,7 +315,7 @@ public extension SHMultiSliderDelegate {
         
     }
     
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int) {
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int,_ lbb: Int,_ ubb: Int) {
         
     }
     

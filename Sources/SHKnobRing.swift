@@ -505,7 +505,7 @@ import Cocoa
     public func reset() {
         setLowerBoundValue(min)
         setUppderBoundValue(max)
-        delegate?.knobBoundsUpdated(lower: Int(min), upper: Int(min))
+        delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound), Int(lowerBipolarRange), Int(upperBipolarRange))
     }
     
     public override func mouseDown(with event: NSEvent) {
@@ -518,7 +518,6 @@ import Cocoa
         } else if (normalizeDifferenceAngleInRadians(a1: clickAngle, upperAngle).magnitude < 0.12) {
             upperClicked = true
         }
-        delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
         if event.modifierFlags.contains(.command) {
             reset()
         }
@@ -561,7 +560,7 @@ import Cocoa
                     if (lowerBipolarRange + Float(event.deltaX)) >= 1 {lowerBipolarRange += Float(event.deltaX)}
                 }
                 updateBipolarBoundsLayers()
-                delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
+                delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound), Int(lowerBipolarRange), Int(upperBipolarRange))
             } else if upperClicked {
                 guard value > lowerBound else {return}
                 setUppderBoundValue(value)
@@ -571,7 +570,7 @@ import Cocoa
                     if (upperBipolarRange + Float(event.deltaX)) >= 1 {upperBipolarRange += Float(event.deltaX)}
                 }
                 updateBipolarBoundsLayers()
-                delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
+                delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound), Int(lowerBipolarRange), Int(upperBipolarRange))
             }
         }
         
@@ -595,7 +594,7 @@ import Cocoa
 // Delegate methods for SHKnobRing
 public protocol SHKnobRingDelegate {
     func knobValueUpdated(value: Int)
-    func knobBoundsUpdated(lower: Int, upper: Int)
+    func knobBoundsUpdated(lower: Int, upper: Int,_ lbb: Int,_ ubb: Int)
     func knobBoundsFinishUpdate()
     func gateModeChanged(_ isGated: Bool)
     func reversedModeChanged(_ isReversed: Bool)
