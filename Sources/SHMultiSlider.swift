@@ -22,11 +22,7 @@ import Cocoa
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
-<<<<<<< HEAD
-=======
     
-    
->>>>>>> parent of b21c471... Release 0.1.1
     /// delegate
     open var delegate: SHMultiSliderDelegate?
     
@@ -59,15 +55,8 @@ import Cocoa
         }
     }
     
-<<<<<<< HEAD
     /// Remap output value based on upper/lower bounds, default = true
-    public var valueNeedsRemap: Bool = true {
-        didSet {
-            ring.valueNeedsRemap = valueNeedsRemap
-        }
-    }
-=======
->>>>>>> parent of b21c471... Release 0.1.1
+    public var valueNeedsRemap: Bool = true
     
     @IBInspectable public var ringColor: NSColor = .orange {
         didSet {
@@ -195,7 +184,6 @@ import Cocoa
         ring.reset()
         sourceName = "Source"
         targetName = "Target"
-        self.outputValue.stringValue = "0"
         ring.updateBounds(self.contentView.frame)
         hardclipValuePointer = true
     }
@@ -218,6 +206,13 @@ import Cocoa
         ring.setLowerBoundValue(Float(newValue))
     }
     
+    public func getLowerBoundValue() -> Int {
+        return Int(ring.lowerBound)
+    }
+    
+    public func getUpperBoundValue() -> Int {
+        return Int(ring.upperBound)
+    }
     
     /// Set value for the ring's value pointer
     ///
@@ -226,10 +221,6 @@ import Cocoa
         value = Float(newValue)
     }
     
-    
-    public func setOutputValueLabelText(_ newText: String) {
-        outputValue.stringValue = newText
-    }
     
     /// Update view bounds, call this on superview's viewDidLayout()
     ///
@@ -250,45 +241,23 @@ import Cocoa
         delegate?.reversedModeChanged(self, isReversed)
     }
     
-    public func setBipolarMode(_ state: Bool) {
-        ring.bipolarBounds = state
-    }
-    
-    
-    /// Get the instance of SHKnobRing
-    public func getRing() -> SHKnobRing {return ring}
-    
-    public func setLowerBipolarBound(_ newValue: Int) {
-        ring.lowerBipolarRange = Float(newValue)
-    }
-    
-    public func setUpperBipolarBound(_ newValue: Int) {
-        ring.upperBipolarRange = Float(newValue)
-    }
 }
 
 
 // MARK: - Implementations for SHKnobRing's delegate
 extension SHMultiSlider: SHKnobRingDelegate {
     public func knobValueUpdated(value: Int) {
-<<<<<<< HEAD
         var output = value
-        if valueNeedsRemap && !ring.bipolarBounds {
+        if valueNeedsRemap {
             output = value.map(start1: Int(ring.lowerBound), stop1: Int(ring.upperBound), start2: Int(min), stop2: Int(max))
-        } else {
-            output = value
         }
         outputValue.stringValue = String(output)
         delegate?.valueChanged(self, output)
-=======
-        outputValue.stringValue = String(value)
-        delegate?.valueChanged(self, value)
->>>>>>> parent of b21c471... Release 0.1.1
     }
-    public func knobBoundsUpdated(lower: Int, upper: Int,_ lbb: Int,_ ubb: Int) {
+    public func knobBoundsUpdated(lower: Int, upper: Int) {
         sourceLabel.stringValue = "Min: \(lower)"
         targetLabel.stringValue = "Max: \(upper)"
-        delegate?.boundsUpdated(self, lower: lower, upper: upper, lbb, ubb)
+        delegate?.boundsUpdated(self, lower: lower, upper: upper)
     }
     public func knobBoundsFinishUpdate() {
         sourceLabel.stringValue = sourceName
@@ -304,25 +273,15 @@ extension SHMultiSlider: SHKnobRingDelegate {
         self.isReversed = isReversed
         delegate?.reversedModeChanged(self, isReversed)
     }
-    
-    public func bipolarBoundsModeChanged(_ isBipolar: Bool) {
-        delegate?.bipolarBoundsModeChanged(self, isBipolar)
-    }
-    
-    public func remapModeChanged(_ needsRemap: Bool) {
-        self.valueNeedsRemap = needsRemap
-    }
 }
 
 
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
     func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int)
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int,_ lbb: Int,_ ubb: Int)
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
-    func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool)
-    func remapModeChanged(_ sender: SHMultiSlider?, _ needsRemap: Bool)
 }
 
 public extension SHMultiSliderDelegate {
@@ -330,7 +289,7 @@ public extension SHMultiSliderDelegate {
         
     }
     
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int,_ lbb: Int,_ ubb: Int) {
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int) {
         
     }
     
@@ -339,14 +298,6 @@ public extension SHMultiSliderDelegate {
     }
     
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool) {
-        
-    }
-    
-    func bipolarBoundsModeChanged(_ sender: SHMultiSlider?, _ isBipolar: Bool) {
-        
-    }
-    
-    func remapModeChanged(_ sender: SHMultiSlider?, _ needsRemap: Bool) {
         
     }
 }
