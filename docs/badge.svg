@@ -19,10 +19,17 @@
       documentation
     </text>
     <text x="1095" y="150" fill="#010101" fill-opacity=".3" transform="scale(.1)" textLength="250">
+<<<<<<< HEAD
       50%
     </text>
     <text x="1095" y="140" transform="scale(.1)" textLength="250">
       50%
+=======
+      59%
+    </text>
+    <text x="1095" y="140" transform="scale(.1)" textLength="250">
+      59%
+>>>>>>> parent of b21c471... Release 0.1.1
     </text>
   </g>
 </svg>

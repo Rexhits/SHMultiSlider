@@ -119,10 +119,10 @@ import Cocoa
     
     
     /// Lowerbound of input value, output value will be remapped from min-max to lowerBound-upperBound
-    private(set) var lowerBound: Float = 0
+    private var lowerBound: Float = 0
     
     /// Upperbound of input value, output value will be remapped from min-max to lowerBound-upperBound
-    private(set) var upperBound: Float = 127
+    private var upperBound: Float = 127
     
     
     /// Value displayed on screen
@@ -218,7 +218,7 @@ import Cocoa
     
     
     func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
-        //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
+//        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
         toPointerLayer.setAffineTransform(CGAffineTransform(rotationAngle: newAngle))
@@ -283,11 +283,13 @@ import Cocoa
             upperBoundLayer.path = upperPath.cgPath
             
         }
+<<<<<<< HEAD
+=======
+        delegate?.knobValueUpdated(value: Int(displayValue).map(start1: Int(lowerBound), stop1: Int(upperBound), start2: Int(min), stop2: Int(max)))
+>>>>>>> parent of b21c471... Release 0.1.1
     }
     
-    public func getBounds() -> (lower: Int, upper: Int) {
-        return (lower: Int(round(lowerBound)), upper: Int(round(upperBound)))
-    }
+    
     
     /// Set value for value pointer
     ///
@@ -393,6 +395,7 @@ import Cocoa
     }
     
     private func updatePointerLayerPath() {
+<<<<<<< HEAD
         autoreleasepool {
             let bounds = trackLayer.bounds
             
@@ -409,6 +412,22 @@ import Cocoa
             upperboundPointerLayer.path = boundPointers.cgPath
             valuePointerLayer.path = pointer.cgPath
         }
+=======
+        let bounds = trackLayer.bounds
+        
+        let boundPointers = NSBezierPath()
+        let pointer = NSBezierPath()
+        
+        boundPointers.move(to: NSPoint(x: bounds.width - boundPointerWidth - ringWidth / 2, y: bounds.midY))
+        boundPointers.line(to: NSPoint(x: bounds.width, y: bounds.midY))
+
+        pointer.move(to: NSPoint(x: bounds.width - pointerWidth - ringWidth / 2, y: bounds.midY))
+        pointer.line(to: NSPoint(x: bounds.width, y: bounds.midY))
+
+        lowerboundPointerLayer.path = boundPointers.cgPath
+        upperboundPointerLayer.path = boundPointers.cgPath
+        valuePointerLayer.path = pointer.cgPath
+>>>>>>> parent of b21c471... Release 0.1.1
     }
     
     func updateBounds(_ bounds: CGRect) {

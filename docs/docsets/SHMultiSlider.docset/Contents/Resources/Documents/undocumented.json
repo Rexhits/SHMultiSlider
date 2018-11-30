@@ -44,6 +44,7 @@
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 288,
       "symbol": "SHKnobRing.getBounds()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -59,62 +60,98 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
       "line": 511,
+=======
+      "line": 366,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRing.mouseDown(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 526,
+=======
+      "line": 382,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRing.mouseUp(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 535,
+=======
+      "line": 389,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRing.mouseDragged(with:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 595,
+=======
+      "line": 439,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRingDelegate",
       "symbol_kind": "source.lang.swift.decl.protocol",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 596,
+=======
+      "line": 440,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRingDelegate.knobValueUpdated(value:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 597,
       "symbol": "SHKnobRingDelegate.knobBoundsUpdated(lower:upper:_:_:)",
+=======
+      "line": 441,
+      "symbol": "SHKnobRingDelegate.knobBoundsUpdated(lower:upper:)",
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 598,
+=======
+      "line": 442,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRingDelegate.knobBoundsFinishUpdate()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 599,
+=======
+      "line": 443,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRingDelegate.gateModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
+<<<<<<< HEAD
       "line": 600,
+=======
+      "line": 444,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHKnobRingDelegate.reversedModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
@@ -142,6 +179,7 @@
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 64,
       "symbol": "SHMultiSlider.ringColor",
       "symbol_kind": "source.lang.swift.decl.var.instance",
@@ -150,40 +188,60 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 136,
+=======
+      "line": 80,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.isEnabled",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 159,
+=======
+      "line": 103,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.layoutSubtreeIfNeeded()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 163,
+=======
+      "line": 107,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.init(coder:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 170,
+=======
+      "line": 114,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.init(frame:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 195,
+=======
+      "line": 138,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.intrinsicContentSize",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 213,
       "symbol": "SHMultiSlider.getLowerBoundValue()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -227,40 +285,61 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 272,
+=======
+      "line": 189,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.knobValueUpdated(value:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 282,
       "symbol": "SHMultiSlider.knobBoundsUpdated(lower:upper:_:_:)",
+=======
+      "line": 193,
+      "symbol": "SHMultiSlider.knobBoundsUpdated(lower:upper:)",
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 287,
+=======
+      "line": 198,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.knobBoundsFinishUpdate()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 292,
+=======
+      "line": 203,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.gateModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 297,
+=======
+      "line": 208,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSlider.reversedModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 302,
       "symbol": "SHMultiSlider.bipolarBoundsModeChanged(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -276,33 +355,50 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 314,
+=======
+      "line": 217,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.valueChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 315,
       "symbol": "SHMultiSliderDelegate.boundsUpdated(lower:upper:_:_:)",
+=======
+      "line": 218,
+      "symbol": "SHMultiSliderDelegate.boundsUpdated(_:lower:upper:)",
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 316,
+=======
+      "line": 219,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.gateModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 317,
+=======
+      "line": 220,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 318,
       "symbol": "SHMultiSliderDelegate.bipolarBoundsModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
@@ -318,27 +414,43 @@
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 323,
+=======
+      "line": 224,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.valueChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 327,
       "symbol": "SHMultiSliderDelegate.boundsUpdated(_:lower:upper:_:_:)",
+=======
+      "line": 228,
+      "symbol": "SHMultiSliderDelegate.boundsUpdated(_:lower:upper:)",
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 331,
+=======
+      "line": 232,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.gateModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+<<<<<<< HEAD
       "line": 335,
+=======
+      "line": 236,
+>>>>>>> parent of b21c471... Release 0.1.1
       "symbol": "SHMultiSliderDelegate.reversedModeChanged(_:_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
