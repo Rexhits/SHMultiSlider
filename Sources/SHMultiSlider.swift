@@ -12,13 +12,13 @@ import Cocoa
 /// A multislider panel, contains a ring, 2 labels and an output value display
 @IBDesignable open class SHMultiSlider: NSControl {
     private let nibName = "SHMultiSlider"
-    @IBOutlet weak var contentView: NSView!
-    @IBOutlet weak var sourceLabel: NSTextField!
-    @IBOutlet weak var targetLabel: NSTextField!
-    @IBOutlet weak var outputValue: NSTextField!
-    @IBOutlet weak var gatedIndicator: TextButton!
-    @IBOutlet weak var reverseIndicator: TextButton!
-    @IBOutlet weak var ring: SHKnobRing!
+    @IBOutlet var contentView: NSView!
+    @IBOutlet var sourceLabel: NSTextField!
+    @IBOutlet var targetLabel: NSTextField!
+    @IBOutlet var outputValue: NSTextField!
+    @IBOutlet var gatedIndicator: TextButton!
+    @IBOutlet var reverseIndicator: TextButton!
+    @IBOutlet var ring: SHKnobRing!
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
@@ -32,6 +32,7 @@ import Cocoa
         super.prepareForInterfaceBuilder()
         setupUI()
     }
+    
     
     
     /// Text for the label at the top
@@ -141,6 +142,8 @@ import Cocoa
     /// Created for my own use, when set to true, "G" label at the bottom will light up
     @IBInspectable public var isGated: Bool = false {
         didSet {
+            ring.isGated = isGated
+            self.valueNeedsRemap = !isGated
             gatedIndicator.textColor = isGated ? NSColor.red: NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
         }
     }
@@ -148,17 +151,21 @@ import Cocoa
     /// Created for my own use, when set to true, "R" label at the bottom will light up
     @IBInspectable public var isReversed: Bool = false {
         didSet {
+            ring.isReversed = isReversed
             reverseIndicator.textColor = isReversed ? NSColor.orange: NSColor(red: 70/255, green: 70/255, blue: 70/255, alpha: 1)
         }
     }
+    
     
     
     open override func layoutSubtreeIfNeeded() {
         ring.updateBounds(self.contentView.bounds)
     }
     
+    
     public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
+        object_setClass(ring, SHKnobRing.self)
         bundle.loadNibNamed(.init(nibName), owner: self, topLevelObjects: nil)
         self.addSubview(contentView)
         setupUI()
@@ -166,6 +173,7 @@ import Cocoa
     
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
+        object_setClass(ring, SHKnobRing.self)
         bundle.loadNibNamed(.init(nibName), owner: self, topLevelObjects: nil)
         self.addSubview(contentView)
         setupUI()

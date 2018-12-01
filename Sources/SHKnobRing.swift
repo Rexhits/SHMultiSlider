@@ -12,7 +12,7 @@ import Cocoa
 /// A knob-like multislider, contains 1 value ring, 1 value pointer and a pair of bound-selector
 @IBDesignable public class SHKnobRing: NSControl {
     
-    
+
     public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         
@@ -30,19 +30,17 @@ import Cocoa
     }
     
     
-    /// Unused
+    /// Only send value update to delegate when input value is within lowerbound and upperbound
     @IBInspectable public var isGated: Bool = false {
         didSet {
-            delegate?.gateModeChanged(isGated)
+            self.hardclipValuePointer = !isGated
         }
     }
     
     /// Unused
-    @IBInspectable public var isReversed: Bool = false {
-        didSet {
-            delegate?.reversedModeChanged(isReversed)
-        }
-    }
+    @IBInspectable public var isReversed: Bool = false
+    
+    
     
     /// Value pointer will jump within upper/lower bounds when it's true, else it will jump between min/map. Default is true
     @IBInspectable public var hardclipValuePointer: Bool = true
@@ -57,11 +55,11 @@ import Cocoa
     /// Delegate
     public var delegate: SHKnobRingDelegate?
     
-    private let trackLayer = CAShapeLayer()
-    private let valuePointerLayer = CAShapeLayer()
-    private let lowerboundPointerLayer = CAShapeLayer()
-    private let upperboundPointerLayer = CAShapeLayer()
-    private let valueLayer = CAShapeLayer()
+    internal let trackLayer = CAShapeLayer()
+    internal let valuePointerLayer = CAShapeLayer()
+    internal let lowerboundPointerLayer = CAShapeLayer()
+    internal let upperboundPointerLayer = CAShapeLayer()
+    internal let valueLayer = CAShapeLayer()
     
     
     /// Min of input value
@@ -102,7 +100,7 @@ import Cocoa
     
     
     /// Value displayed on screen
-    private (set) var displayValue: Float = 0
+    internal (set) var displayValue: Float = 0
     
     var lowerClicked = false
     var upperClicked = false
@@ -184,12 +182,12 @@ import Cocoa
     
     
     
-    private var lowerAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
-    private var upperAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees
-    private var valueAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
+    internal var lowerAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
+    internal var upperAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees
+    internal var valueAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
     
     
-    func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
+    internal func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
         //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
         CATransaction.begin()
         CATransaction.setDisableActions(true)
@@ -197,7 +195,7 @@ import Cocoa
         CATransaction.commit()
     }
     
-    func updateValueLayer() {
+    internal func updateValueLayer() {
         let bounds = trackLayer.bounds
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let offset = Swift.max(boundPointerWidth, ringWidth / 2)
@@ -213,7 +211,7 @@ import Cocoa
         }
     }
     
-    func updateValueLayer(_ newValue: CGFloat) {
+    internal func updateValueLayer(_ newValue: CGFloat) {
         let bounds = trackLayer.bounds
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let offset = Swift.max(boundPointerWidth, ringWidth / 2)
@@ -255,10 +253,18 @@ import Cocoa
             setPointerAngle(cal.angle, valuePointerLayer)
             valueAngle = cal.angle
         }
+        
+        if isGated && (newValue < lowerBound || newValue > upperBound) {
+            valueLayer.strokeColor = NSColor.gray.cgColor
+        } else {
+            valueLayer.strokeColor = tintColor.cgColor
+        }
+
         displayValue = cal.value
         updateValueLayer(cal.angle)
         
     }
+    
     
     
     /// Set lower bound's value
@@ -282,7 +288,7 @@ import Cocoa
         upperAngle = cal.angle
     }
     
-    func calculateValue(_ newValue: Float) -> (value: Float, angle: CGFloat) {
+    internal func calculateValue(_ newValue: Float) -> (value: Float, angle: CGFloat) {
         let value = Swift.min(max, Swift.max(min, newValue))
         let angleRange = endAngle.degreesToRadians - startAngle.degreesToRadians
         let valueRange = max - min
@@ -290,7 +296,7 @@ import Cocoa
     }
     
     
-    private func updateTrackLayerPath() {
+    internal func updateTrackLayerPath() {
         let bounds = trackLayer.bounds
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         let offset = Swift.max(boundPointerWidth, ringWidth / 2)
@@ -303,7 +309,7 @@ import Cocoa
         
     }
     
-    private func updatePointerLayerPath() {
+    internal func updatePointerLayerPath() {
         let bounds = trackLayer.bounds
         
         let boundPointers = NSBezierPath()
@@ -320,7 +326,7 @@ import Cocoa
         valuePointerLayer.path = pointer.cgPath
     }
     
-    func updateBounds(_ bounds: CGRect) {
+    internal func updateBounds(_ bounds: CGRect) {
         trackLayer.bounds = bounds
         trackLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         updateTrackLayerPath()
@@ -337,7 +343,7 @@ import Cocoa
         updatePointerLayerPath()
     }
     
-    private func setupUI() {
+    internal func setupUI() {
         wantsLayer = true
         valueLayer.fillColor = NSColor.clear.cgColor
         trackLayer.fillColor = NSColor.black.withAlphaComponent(0.2).cgColor
@@ -428,12 +434,12 @@ import Cocoa
         }
     }
     
-    private func angle(for point: CGPoint) -> CGFloat {
+    internal func angle(for point: CGPoint) -> CGFloat {
         let centerOffset = CGPoint(x: point.x - self.bounds.midX, y: point.y - self.bounds.midY)
         return atan2(centerOffset.y, centerOffset.x)
     }
     
-    func normalizeDifferenceAngleInRadians(a1: CGFloat, _ a2: CGFloat)->CGFloat {
+    internal func normalizeDifferenceAngleInRadians(a1: CGFloat, _ a2: CGFloat)->CGFloat {
         let twoPi = 2 * CGFloat.pi
         let d: CGFloat = (a2 - a1).remainder(dividingBy: twoPi)
         let s: CGFloat = d < 0 ? -1.0 : 1.0
@@ -448,6 +454,4 @@ public protocol SHKnobRingDelegate {
     func knobValueUpdated(value: Int)
     func knobBoundsUpdated(lower: Int, upper: Int)
     func knobBoundsFinishUpdate()
-    func gateModeChanged(_ isGated: Bool)
-    func reversedModeChanged(_ isReversed: Bool)
 }

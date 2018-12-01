@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FD51B41D21B32E67006A19BD /* SHMultiSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41921B32E66006A19BD /* SHMultiSlider.swift */; };
+		FD51B41E21B32E67006A19BD /* SHKnobRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41A21B32E66006A19BD /* SHKnobRing.swift */; };
+		FD51B41F21B32E67006A19BD /* SHBipolarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41B21B32E66006A19BD /* SHBipolarSlider.swift */; };
+		FD51B42021B32E67006A19BD /* SHBiploarRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41C21B32E67006A19BD /* SHBiploarRing.swift */; };
 		FDE2F07521AD06EF007E6743 /* SHMultiSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */; };
 		FDE2F07A21AD06EF007E6743 /* SHMultiSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F07921AD06EF007E6743 /* SHMultiSliderTests.swift */; };
 		FDE2F07C21AD06EF007E6743 /* SHMultiSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE2F06E21AD06EF007E6743 /* SHMultiSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDE2F08921AD0700007E6743 /* SHMultiSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */; };
 		FDE2F08A21AD0700007E6743 /* PublicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F08621AD0700007E6743 /* PublicExtensions.swift */; };
-		FDE2F08B21AD0700007E6743 /* SHKnobRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F08721AD0700007E6743 /* SHKnobRing.swift */; };
-		FDE2F08C21AD0700007E6743 /* SHMultiSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F08821AD0700007E6743 /* SHMultiSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FD51B41921B32E66006A19BD /* SHMultiSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMultiSlider.swift; sourceTree = "<group>"; };
+		FD51B41A21B32E66006A19BD /* SHKnobRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHKnobRing.swift; sourceTree = "<group>"; };
+		FD51B41B21B32E66006A19BD /* SHBipolarSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHBipolarSlider.swift; sourceTree = "<group>"; };
+		FD51B41C21B32E67006A19BD /* SHBiploarRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHBiploarRing.swift; sourceTree = "<group>"; };
 		FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SHMultiSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE2F06E21AD06EF007E6743 /* SHMultiSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMultiSlider.h; sourceTree = "<group>"; };
 		FDE2F06F21AD06EF007E6743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,8 +41,6 @@
 		FDE2F07B21AD06EF007E6743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHMultiSlider.xib; sourceTree = "<group>"; };
 		FDE2F08621AD0700007E6743 /* PublicExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicExtensions.swift; sourceTree = "<group>"; };
-		FDE2F08721AD0700007E6743 /* SHKnobRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHKnobRing.swift; sourceTree = "<group>"; };
-		FDE2F08821AD0700007E6743 /* SHMultiSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHMultiSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,8 +112,10 @@
 			isa = PBXGroup;
 			children = (
 				FDE2F08621AD0700007E6743 /* PublicExtensions.swift */,
-				FDE2F08721AD0700007E6743 /* SHKnobRing.swift */,
-				FDE2F08821AD0700007E6743 /* SHMultiSlider.swift */,
+				FD51B41C21B32E67006A19BD /* SHBiploarRing.swift */,
+				FD51B41B21B32E66006A19BD /* SHBipolarSlider.swift */,
+				FD51B41A21B32E66006A19BD /* SHKnobRing.swift */,
+				FD51B41921B32E66006A19BD /* SHMultiSlider.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -224,9 +230,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FDE2F08B21AD0700007E6743 /* SHKnobRing.swift in Sources */,
 				FDE2F08A21AD0700007E6743 /* PublicExtensions.swift in Sources */,
-				FDE2F08C21AD0700007E6743 /* SHMultiSlider.swift in Sources */,
+				FD51B42021B32E67006A19BD /* SHBiploarRing.swift in Sources */,
+				FD51B41D21B32E67006A19BD /* SHMultiSlider.swift in Sources */,
+				FD51B41E21B32E67006A19BD /* SHKnobRing.swift in Sources */,
+				FD51B41F21B32E67006A19BD /* SHBipolarSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
