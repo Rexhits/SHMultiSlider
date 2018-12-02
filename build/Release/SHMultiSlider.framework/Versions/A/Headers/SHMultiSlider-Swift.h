@@ -216,6 +216,13 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 @end
 
 
+SWIFT_CLASS("_TtC13SHMultiSlider13SHBipolarRing")
+@interface SHBipolarRing : SHKnobRing
+- (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 /// A multislider panel, contains a ring, 2 labels and an output value display
 SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @interface SHMultiSlider : NSControl
@@ -249,6 +256,15 @@ SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 - (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
 @property (nonatomic, readonly) NSSize intrinsicContentSize;
 @end
+
+
+SWIFT_CLASS("_TtC13SHMultiSlider15SHBipolarSlider")
+@interface SHBipolarSlider : SHMultiSlider
+- (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)decoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 

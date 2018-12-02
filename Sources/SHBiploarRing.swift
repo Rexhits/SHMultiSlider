@@ -8,19 +8,19 @@
 
 import Cocoa
 
-class SHBipolarRing: SHKnobRing {
+public class SHBipolarRing: SHKnobRing {
     
     
     
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    override func setValue(_ newValue: Float, animated: Bool) {
+    public override func setValue(_ newValue: Float, animated: Bool) {
         let cal = calculateValue(newValue)
         setPointerAngle(cal.angle, valuePointerLayer)
         valueAngle = cal.angle

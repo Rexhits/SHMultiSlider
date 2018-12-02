@@ -1,6 +1,48 @@
 {
   "warnings": [
     {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBiploarRing.swift",
+      "line": 11,
+      "symbol": "SHBipolarRing",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBiploarRing.swift",
+      "line": 15,
+      "symbol": "SHBipolarRing.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBiploarRing.swift",
+      "line": 19,
+      "symbol": "SHBipolarRing.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBipolarSlider.swift",
+      "line": 11,
+      "symbol": "SHBipolarSlider",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBipolarSlider.swift",
+      "line": 13,
+      "symbol": "SHBipolarSlider.init(frame:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHBipolarSlider.swift",
+      "line": 23,
+      "symbol": "SHBipolarSlider.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHKnobRing.swift",
       "line": 16,
       "symbol": "SHKnobRing.init(frame:)",

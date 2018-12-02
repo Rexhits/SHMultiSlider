@@ -8,9 +8,9 @@
 
 import Cocoa
 
-class SHBipolarSlider: SHMultiSlider {
+open class SHBipolarSlider: SHMultiSlider {
     
-    override init(frame frameRect: NSRect) {
+    public override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         object_setClass(self.ring, SHBipolarRing.self)
         self.ring.delegate = self
@@ -20,7 +20,7 @@ class SHBipolarSlider: SHMultiSlider {
         self.gatedIndicator.isHidden = true
     }
     
-    required init?(coder decoder: NSCoder) {
+    public required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         object_setClass(self.ring, SHBipolarRing.self)
         self.gatedIndicator.isHidden = true
