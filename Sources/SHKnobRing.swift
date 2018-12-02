@@ -360,6 +360,11 @@ import Cocoa
         ringWidth = 5
         pointerWidth = 6
         boundPointerWidth = 4
+        trackLayer.shouldRasterize = true
+        valueLayer.drawsAsynchronously = true
+        lowerboundPointerLayer.shouldRasterize = true
+        upperboundPointerLayer.shouldRasterize = true
+        valuePointerLayer.shouldRasterize = true
         layer?.addSublayer(trackLayer)
         layer?.addSublayer(valueLayer)
         layer?.addSublayer(lowerboundPointerLayer)

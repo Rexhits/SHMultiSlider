@@ -195,7 +195,7 @@ SWIFT_CLASS("_TtC13SHMultiSlider10SHKnobRing")
 - (nonnull instancetype)initWithFrame:(NSRect)frameRect OBJC_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 - (void)prepareForInterfaceBuilder;
-/// Unused
+/// Only send value update to delegate when input value is within lowerbound and upperbound
 @property (nonatomic) BOOL isGated;
 /// Unused
 @property (nonatomic) BOOL isReversed;
