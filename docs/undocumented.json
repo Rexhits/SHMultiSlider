@@ -128,6 +128,27 @@
     },
     {
       "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+      "line": 16,
+      "symbol": "SHMultiSlider.sourceLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+      "line": 17,
+      "symbol": "SHMultiSlider.targetLabel",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
+      "line": 18,
+      "symbol": "SHMultiSlider.outputValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/wangrex/Github/SHMultiSlider/Sources/SHMultiSlider.swift",
       "line": 31,
       "symbol": "SHMultiSlider.prepareForInterfaceBuilder()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",

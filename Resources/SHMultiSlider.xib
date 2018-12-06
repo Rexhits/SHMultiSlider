@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
         <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -24,16 +25,16 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="lcq-An-KIM">
-                    <rect key="frame" x="36" y="73" width="28" height="11"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="pfL-NK-OHf">
+                    <rect key="frame" x="34" y="68" width="32" height="11"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="pfL-NK-OHf">
                         <font key="font" metaFont="miniSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Emq-Of-wzF">
-                    <rect key="frame" x="36" y="17" width="28" height="11"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="AzN-hJ-s8t">
+                    <rect key="frame" x="34" y="22" width="32" height="11"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="Label" id="AzN-hJ-s8t">
                         <font key="font" metaFont="miniSystem"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -92,12 +93,12 @@
                 <constraint firstItem="Emq-Of-wzF" firstAttribute="centerX" secondItem="RfX-jt-sVE" secondAttribute="centerX" id="5JF-Cp-QbQ"/>
                 <constraint firstItem="xno-qV-l0g" firstAttribute="centerX" secondItem="RfX-jt-sVE" secondAttribute="centerX" id="5tY-Kp-rlf"/>
                 <constraint firstItem="s9t-hv-zRM" firstAttribute="centerY" secondItem="RfX-jt-sVE" secondAttribute="centerY" id="9XR-X2-9T3"/>
-                <constraint firstItem="Emq-Of-wzF" firstAttribute="top" secondItem="s9t-hv-zRM" secondAttribute="bottom" constant="8" id="CM4-Mp-KzK"/>
+                <constraint firstItem="Emq-Of-wzF" firstAttribute="top" secondItem="s9t-hv-zRM" secondAttribute="bottom" constant="3" id="CM4-Mp-KzK"/>
                 <constraint firstItem="xno-qV-l0g" firstAttribute="height" secondItem="RfX-jt-sVE" secondAttribute="height" id="Qhv-yK-xxE"/>
                 <constraint firstAttribute="bottom" secondItem="aGe-fu-GPU" secondAttribute="bottom" id="Ta4-EA-FTx"/>
                 <constraint firstItem="xno-qV-l0g" firstAttribute="width" secondItem="RfX-jt-sVE" secondAttribute="width" id="VAn-kq-L0j"/>
                 <constraint firstItem="s9t-hv-zRM" firstAttribute="centerX" secondItem="RfX-jt-sVE" secondAttribute="centerX" id="X6y-fB-ka6"/>
-                <constraint firstItem="s9t-hv-zRM" firstAttribute="top" secondItem="lcq-An-KIM" secondAttribute="bottom" constant="8" id="enF-Oc-YAE"/>
+                <constraint firstItem="s9t-hv-zRM" firstAttribute="top" secondItem="lcq-An-KIM" secondAttribute="bottom" constant="3" id="enF-Oc-YAE"/>
                 <constraint firstItem="aGe-fu-GPU" firstAttribute="centerX" secondItem="RfX-jt-sVE" secondAttribute="centerX" id="xNS-tg-RbQ"/>
             </constraints>
             <point key="canvasLocation" x="75" y="20"/>

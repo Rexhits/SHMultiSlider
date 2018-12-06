@@ -13,9 +13,9 @@ import Cocoa
 @IBDesignable open class SHMultiSlider: NSControl {
     private let nibName = "SHMultiSlider"
     @IBOutlet var contentView: NSView!
-    @IBOutlet var sourceLabel: NSTextField!
-    @IBOutlet var targetLabel: NSTextField!
-    @IBOutlet var outputValue: NSTextField!
+    @IBOutlet public var sourceLabel: NSTextField!
+    @IBOutlet public var targetLabel: NSTextField!
+    @IBOutlet public var outputValue: NSTextField!
     @IBOutlet var gatedIndicator: TextButton!
     @IBOutlet var reverseIndicator: TextButton!
     @IBOutlet var ring: SHKnobRing!
@@ -57,7 +57,7 @@ import Cocoa
     }
     
     /// Remap output value based on upper/lower bounds, default = true
-    public var valueNeedsRemap: Bool = true
+    public var valueNeedsRemap: Bool = true 
     
     @IBInspectable public var ringColor: NSColor = .orange {
         didSet {

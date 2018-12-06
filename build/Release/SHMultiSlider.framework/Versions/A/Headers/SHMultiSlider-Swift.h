@@ -222,10 +222,14 @@ SWIFT_CLASS("_TtC13SHMultiSlider13SHBipolarRing")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+@class NSTextField;
 
 /// A multislider panel, contains a ring, 2 labels and an output value display
 SWIFT_CLASS("_TtC13SHMultiSlider13SHMultiSlider")
 @interface SHMultiSlider : NSControl
+@property (nonatomic, strong) IBOutlet NSTextField * _Null_unspecified sourceLabel;
+@property (nonatomic, strong) IBOutlet NSTextField * _Null_unspecified targetLabel;
+@property (nonatomic, strong) IBOutlet NSTextField * _Null_unspecified outputValue;
 - (void)prepareForInterfaceBuilder;
 @property (nonatomic, strong) NSColor * _Nonnull ringColor;
 /// Color of the value ring
