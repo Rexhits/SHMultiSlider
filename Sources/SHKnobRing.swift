@@ -354,9 +354,9 @@ import Cocoa
         boundPointerColor = NSColor.white
         tintColor = NSColor.orange
         valuePointerColor = NSColor.red
-        setLowerBoundValue(0)
-        setUppderBoundValue(127)
-        setValue(64)
+        setLowerBoundValue(min)
+        setUppderBoundValue(max)
+        setValue(max/2)
         ringWidth = 5
         pointerWidth = 6
         boundPointerWidth = 4
@@ -423,7 +423,7 @@ import Cocoa
             }
         }
         
-        let value = round(Float(clickAngle.map(start1: 0, stop1: CGFloat.pi + 2*(startAngle.degreesToRadians-CGFloat.pi), start2: 0, stop2: 127)))
+        let value = round(Float(clickAngle.map(start1: 0, stop1: CGFloat.pi + 2*(startAngle.degreesToRadians-CGFloat.pi), start2: CGFloat(min), stop2: CGFloat(max))))
         if lowerClicked {
             guard value < upperBound else {return}
             setLowerBoundValue(value)
