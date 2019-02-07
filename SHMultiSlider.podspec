@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SHMultiSlider"
-  s.version      = "0.3.1"
+  s.version      = "0.3.2"
   s.summary      = "[macOS] Knob with 2 sliders"
 
   # This description is used to generate tags and improve search results.
@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
   A multislider UI component for macOS, written in Swift 4.2
                    DESC
 
-  s.homepage     = "https://sonichits.studio/"
+  s.homepage     = "https://sonichits.co/"
   # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
 
 

@@ -383,7 +383,12 @@ import Cocoa
     }
     
     public override func mouseDown(with event: NSEvent) {
+        delegate?.mouseDownInside(event)
         guard isEnabled else {return}
+        if event.modifierFlags.contains(.command) {
+            reset()
+            return
+        }
         let eventLoc = event.locationInWindow
         let localLoc = self.convert(eventLoc, from: nil)
         let clickAngle = angle(for: localLoc)
@@ -393,12 +398,10 @@ import Cocoa
             upperClicked = true
         }
         delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
-        if event.modifierFlags.contains(.command) {
-            reset()
-        }
     }
     
     public override func mouseUp(with event: NSEvent) {
+        delegate?.mouseUpInside(event)
         guard isEnabled else {return}
         lowerClicked = false
         upperClicked = false
@@ -459,4 +462,6 @@ public protocol SHKnobRingDelegate {
     func knobValueUpdated(value: Int)
     func knobBoundsUpdated(lower: Int, upper: Int)
     func knobBoundsFinishUpdate()
+    func mouseDownInside(_ event: NSEvent)
+    func mouseUpInside(_ event: NSEvent)
 }

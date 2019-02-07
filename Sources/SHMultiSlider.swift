@@ -281,6 +281,12 @@ extension SHMultiSlider: SHKnobRingDelegate {
         self.isReversed = isReversed
         delegate?.reversedModeChanged(self, isReversed)
     }
+    public func mouseDownInside(_ event: NSEvent) {
+        delegate?.mouseDownInside(event)
+    }
+    public func mouseUpInside(_ event: NSEvent) {
+        delegate?.mouseUpInside(event)
+    }
 }
 
 
@@ -290,6 +296,8 @@ public protocol SHMultiSliderDelegate {
     func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
+    func mouseDownInside(_ event: NSEvent)
+    func mouseUpInside(_ event: NSEvent)
 }
 
 public extension SHMultiSliderDelegate {
@@ -306,6 +314,14 @@ public extension SHMultiSliderDelegate {
     }
     
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool) {
+        
+    }
+    
+    func mouseDownInside(_ event: NSEvent) {
+        
+    }
+    
+    func mouseUpInside(_ event: NSEvent) {
         
     }
 }
