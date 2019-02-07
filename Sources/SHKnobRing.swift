@@ -378,7 +378,7 @@ import Cocoa
     public func reset() {
         setLowerBoundValue(min)
         setUppderBoundValue(max)
-        delegate?.knobBoundsUpdated(lower: Int(min), upper: Int(min))
+        delegate?.knobBoundsUpdated(lower: Int(min), upper: Int(max))
         setValue(min)
     }
     
