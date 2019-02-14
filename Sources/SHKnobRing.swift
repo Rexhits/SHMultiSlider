@@ -426,7 +426,7 @@ import Cocoa
             }
         }
         
-        let value = round(Float(clickAngle.map(start1: 0, stop1: CGFloat.pi + 2*(startAngle.degreesToRadians-CGFloat.pi), start2: CGFloat(min), stop2: CGFloat(max))))
+        let value = Float(clickAngle.map(start1: 0, stop1: CGFloat.pi + 2*(startAngle.degreesToRadians-CGFloat.pi), start2: CGFloat(min), stop2: CGFloat(max)))
         if lowerClicked {
             guard value < upperBound else {return}
             setLowerBoundValue(value)
