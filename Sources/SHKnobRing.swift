@@ -378,7 +378,7 @@ import Cocoa
     public func reset() {
         setLowerBoundValue(min)
         setUppderBoundValue(max)
-        delegate?.knobBoundsUpdated(lower: Int(min), upper: Int(max))
+        delegate?.knobBoundsUpdated(lower: CGFloat(min), upper: CGFloat(max))
         setValue(min)
     }
     
@@ -397,7 +397,7 @@ import Cocoa
         } else if (normalizeDifferenceAngleInRadians(a1: clickAngle, upperAngle).magnitude < 0.12) {
             upperClicked = true
         }
-        delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
+        delegate?.knobBoundsUpdated(lower: CGFloat(lowerBound), upper: CGFloat(upperBound))
     }
     
     public override func mouseUp(with event: NSEvent) {
@@ -432,13 +432,13 @@ import Cocoa
             setLowerBoundValue(value)
             setValue(displayValue)
             updateValueLayer(valueAngle)
-            delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
+            delegate?.knobBoundsUpdated(lower: CGFloat(lowerBound), upper: CGFloat(upperBound))
         } else if upperClicked {
             guard value > lowerBound else {return}
             setUppderBoundValue(value)
             setValue(displayValue)
             updateValueLayer(valueAngle)
-            delegate?.knobBoundsUpdated(lower: Int(lowerBound), upper: Int(upperBound))
+            delegate?.knobBoundsUpdated(lower: CGFloat(lowerBound), upper: CGFloat(upperBound))
         }
     }
     
@@ -460,7 +460,7 @@ import Cocoa
 // Delegate methods for SHKnobRing
 public protocol SHKnobRingDelegate {
     func knobValueUpdated(value: Int)
-    func knobBoundsUpdated(lower: Int, upper: Int)
+    func knobBoundsUpdated(lower: CGFloat, upper: CGFloat)
     func knobBoundsFinishUpdate()
     func mouseDownInside(_ event: NSEvent)
     func mouseUpInside(_ event: NSEvent)

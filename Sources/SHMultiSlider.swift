@@ -207,6 +207,7 @@ import Cocoa
         ring.setUppderBoundValue(Float(newValue))
     }
     
+    
     /// Set lower bound's value
     ///
     /// - Parameter newValue: new lower bound value, output value will be remapped from min-max to lowerBound-upperBound
@@ -262,11 +263,14 @@ extension SHMultiSlider: SHKnobRingDelegate {
         outputValue.stringValue = String(output)
         delegate?.valueChanged(self, output)
     }
-    public func knobBoundsUpdated(lower: Int, upper: Int) {
+
+    
+    public func knobBoundsUpdated(lower: CGFloat, upper: CGFloat) {
         sourceLabel.stringValue = "Min: \(lower)"
         targetLabel.stringValue = "Max: \(upper)"
         delegate?.boundsUpdated(self, lower: lower, upper: upper)
     }
+    
     public func knobBoundsFinishUpdate() {
         sourceLabel.stringValue = sourceName
         targetLabel.stringValue = targetName
@@ -305,7 +309,9 @@ public extension SHMultiSliderDelegate {
         
     }
     
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int) {
+
+    
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: CGFloat, upper: CGFloat) {
         
     }
     
