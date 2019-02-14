@@ -266,8 +266,8 @@ extension SHMultiSlider: SHKnobRingDelegate {
 
     
     public func knobBoundsUpdated(lower: CGFloat, upper: CGFloat) {
-        sourceLabel.stringValue = "Min: \(lower)"
-        targetLabel.stringValue = "Max: \(upper)"
+        sourceLabel.stringValue = "Min: \(Int(lower))"
+        targetLabel.stringValue = "Max: \(Int(upper))"
         delegate?.boundsUpdated(self, lower: lower, upper: upper)
     }
     
