@@ -297,7 +297,7 @@ extension SHMultiSlider: SHKnobRingDelegate {
 /// Delegate of SHMultiSlider
 public protocol SHMultiSliderDelegate {
     func valueChanged(_ sender: SHMultiSlider?, _ newValue: Int)
-    func boundsUpdated(_ sender: SHMultiSlider?, lower: Int, upper: Int)
+    func boundsUpdated(_ sender: SHMultiSlider?, lower: CGFloat, upper: CGFloat)
     func gateModeChanged(_ sender: SHMultiSlider?, _ isGated: Bool)
     func reversedModeChanged(_ sender: SHMultiSlider?, _ isReversed: Bool)
     func mouseDownInside(_ event: NSEvent)
