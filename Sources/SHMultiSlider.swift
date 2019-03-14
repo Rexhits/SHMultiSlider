@@ -18,7 +18,7 @@ import Cocoa
     @IBOutlet public var outputValue: NSTextField!
     @IBOutlet public var gatedIndicator: TextButton!
     @IBOutlet public var reverseIndicator: TextButton!
-    @IBOutlet public var ring: SHKnobRing!
+    @IBOutlet var ring: SHKnobRing!
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
@@ -250,6 +250,9 @@ import Cocoa
         delegate?.reversedModeChanged(self, isReversed)
     }
     
+    public func hideBoundsPointers() {
+        ring.hideBoundsPointers()
+    }
 }
 
 

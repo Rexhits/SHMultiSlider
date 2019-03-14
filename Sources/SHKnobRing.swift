@@ -442,6 +442,11 @@ import Cocoa
         }
     }
     
+    public func hideBoundsPointers() {
+        lowerboundPointerLayer.isHidden = true
+        upperboundPointerLayer.isHidden = true
+    }
+    
     internal func angle(for point: CGPoint) -> CGFloat {
         let centerOffset = CGPoint(x: point.x - self.bounds.midX, y: point.y - self.bounds.midY)
         return atan2(centerOffset.y, centerOffset.x)
