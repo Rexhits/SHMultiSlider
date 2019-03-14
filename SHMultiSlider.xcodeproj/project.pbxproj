@@ -11,15 +11,15 @@
 		FD51B41E21B32E67006A19BD /* SHKnobRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41A21B32E66006A19BD /* SHKnobRing.swift */; };
 		FD51B41F21B32E67006A19BD /* SHBipolarSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41B21B32E66006A19BD /* SHBipolarSlider.swift */; };
 		FD51B42021B32E67006A19BD /* SHBiploarRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51B41C21B32E67006A19BD /* SHBiploarRing.swift */; };
-		FDE2F07521AD06EF007E6743 /* SHMultiSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */; };
-		FDE2F07A21AD06EF007E6743 /* SHMultiSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F07921AD06EF007E6743 /* SHMultiSliderTests.swift */; };
+		FDDECB06223AEA7000F9B7B0 /* SHMultiSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDDECB05223AEA7000F9B7B0 /* SHMultiSliderTests.swift */; };
+		FDDECB08223AEA7000F9B7B0 /* SHMultiSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */; };
 		FDE2F07C21AD06EF007E6743 /* SHMultiSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = FDE2F06E21AD06EF007E6743 /* SHMultiSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FDE2F08921AD0700007E6743 /* SHMultiSlider.xib in Resources */ = {isa = PBXBuildFile; fileRef = FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */; };
 		FDE2F08A21AD0700007E6743 /* PublicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDE2F08621AD0700007E6743 /* PublicExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		FDE2F07621AD06EF007E6743 /* PBXContainerItemProxy */ = {
+		FDDECB09223AEA7000F9B7B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FDE2F06221AD06EF007E6743 /* Project object */;
 			proxyType = 1;
@@ -33,10 +33,12 @@
 		FD51B41A21B32E66006A19BD /* SHKnobRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHKnobRing.swift; sourceTree = "<group>"; };
 		FD51B41B21B32E66006A19BD /* SHBipolarSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHBipolarSlider.swift; sourceTree = "<group>"; };
 		FD51B41C21B32E67006A19BD /* SHBiploarRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SHBiploarRing.swift; sourceTree = "<group>"; };
+		FDDECB03223AEA7000F9B7B0 /* SHMultiSliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMultiSliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDDECB05223AEA7000F9B7B0 /* SHMultiSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMultiSliderTests.swift; sourceTree = "<group>"; };
+		FDDECB07223AEA7000F9B7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SHMultiSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE2F06E21AD06EF007E6743 /* SHMultiSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMultiSlider.h; sourceTree = "<group>"; };
 		FDE2F06F21AD06EF007E6743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FDE2F07421AD06EF007E6743 /* SHMultiSliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMultiSliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FDE2F07921AD06EF007E6743 /* SHMultiSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHMultiSliderTests.swift; sourceTree = "<group>"; };
 		FDE2F07B21AD06EF007E6743 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FDE2F08521AD0700007E6743 /* SHMultiSlider.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHMultiSlider.xib; sourceTree = "<group>"; };
@@ -44,18 +46,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		FDDECB00223AEA7000F9B7B0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDECB08223AEA7000F9B7B0 /* SHMultiSlider.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDE2F06821AD06EF007E6743 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FDE2F07121AD06EF007E6743 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDE2F07521AD06EF007E6743 /* SHMultiSlider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,6 +72,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		FDDECB04223AEA7000F9B7B0 /* SHMultiSliderTests */ = {
+			isa = PBXGroup;
+			children = (
+				FDDECB05223AEA7000F9B7B0 /* SHMultiSliderTests.swift */,
+				FDDECB07223AEA7000F9B7B0 /* Info.plist */,
+			);
+			path = SHMultiSliderTests;
+			sourceTree = "<group>";
+		};
 		FDE2F06121AD06EF007E6743 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +88,7 @@
 				FDE2F08D21AD0707007E6743 /* Sources */,
 				FDE2F06D21AD06EF007E6743 /* SHMultiSlider */,
 				FDE2F07821AD06EF007E6743 /* SHMultiSliderTests */,
+				FDDECB04223AEA7000F9B7B0 /* SHMultiSliderTests */,
 				FDE2F06C21AD06EF007E6743 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -85,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */,
-				FDE2F07421AD06EF007E6743 /* SHMultiSliderTests.xctest */,
+				FDDECB03223AEA7000F9B7B0 /* SHMultiSliderTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -134,6 +146,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		FDDECB02223AEA7000F9B7B0 /* SHMultiSliderTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FDDECB0B223AEA7000F9B7B0 /* Build configuration list for PBXNativeTarget "SHMultiSliderTests" */;
+			buildPhases = (
+				FDDECAFF223AEA7000F9B7B0 /* Sources */,
+				FDDECB00223AEA7000F9B7B0 /* Frameworks */,
+				FDDECB01223AEA7000F9B7B0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FDDECB0A223AEA7000F9B7B0 /* PBXTargetDependency */,
+			);
+			name = SHMultiSliderTests;
+			productName = SHMultiSliderTests;
+			productReference = FDDECB03223AEA7000F9B7B0 /* SHMultiSliderTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		FDE2F06A21AD06EF007E6743 /* SHMultiSlider */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = FDE2F07F21AD06EF007E6743 /* Build configuration list for PBXNativeTarget "SHMultiSlider" */;
@@ -152,24 +182,6 @@
 			productReference = FDE2F06B21AD06EF007E6743 /* SHMultiSlider.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		FDE2F07321AD06EF007E6743 /* SHMultiSliderTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FDE2F08221AD06EF007E6743 /* Build configuration list for PBXNativeTarget "SHMultiSliderTests" */;
-			buildPhases = (
-				FDE2F07021AD06EF007E6743 /* Sources */,
-				FDE2F07121AD06EF007E6743 /* Frameworks */,
-				FDE2F07221AD06EF007E6743 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FDE2F07721AD06EF007E6743 /* PBXTargetDependency */,
-			);
-			name = SHMultiSliderTests;
-			productName = SHMultiSliderTests;
-			productReference = FDE2F07421AD06EF007E6743 /* SHMultiSliderTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,12 +192,12 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = WangRex;
 				TargetAttributes = {
+					FDDECB02223AEA7000F9B7B0 = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					FDE2F06A21AD06EF007E6743 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
-					};
-					FDE2F07321AD06EF007E6743 = {
-						CreatedOnToolsVersion = 10.1;
 					};
 				};
 			};
@@ -202,12 +214,19 @@
 			projectRoot = "";
 			targets = (
 				FDE2F06A21AD06EF007E6743 /* SHMultiSlider */,
-				FDE2F07321AD06EF007E6743 /* SHMultiSliderTests */,
+				FDDECB02223AEA7000F9B7B0 /* SHMultiSliderTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		FDDECB01223AEA7000F9B7B0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDE2F06921AD06EF007E6743 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,16 +235,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE2F07221AD06EF007E6743 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		FDDECAFF223AEA7000F9B7B0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FDDECB06223AEA7000F9B7B0 /* SHMultiSliderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FDE2F06721AD06EF007E6743 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -238,25 +258,53 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FDE2F07021AD06EF007E6743 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDE2F07A21AD06EF007E6743 /* SHMultiSliderTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		FDE2F07721AD06EF007E6743 /* PBXTargetDependency */ = {
+		FDDECB0A223AEA7000F9B7B0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = FDE2F06A21AD06EF007E6743 /* SHMultiSlider */;
-			targetProxy = FDE2F07621AD06EF007E6743 /* PBXContainerItemProxy */;
+			targetProxy = FDDECB09223AEA7000F9B7B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		FDDECB0C223AEA7000F9B7B0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8U45AH5629;
+				INFOPLIST_FILE = SHMultiSliderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Sonic-Hits-CO.SHMultiSliderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Debug;
+		};
+		FDDECB0D223AEA7000F9B7B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 8U45AH5629;
+				INFOPLIST_FILE = SHMultiSliderTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Sonic-Hits-CO.SHMultiSliderTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Release;
+		};
 		FDE2F07D21AD06EF007E6743 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -437,47 +485,18 @@
 			};
 			name = Release;
 		};
-		FDE2F08321AD06EF007E6743 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8U45AH5629;
-				INFOPLIST_FILE = SHMultiSliderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Sonic-Hits-CO.SHMultiSliderTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Debug;
-		};
-		FDE2F08421AD06EF007E6743 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = 8U45AH5629;
-				INFOPLIST_FILE = SHMultiSliderTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "Sonic-Hits-CO.SHMultiSliderTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		FDDECB0B223AEA7000F9B7B0 /* Build configuration list for PBXNativeTarget "SHMultiSliderTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FDDECB0C223AEA7000F9B7B0 /* Debug */,
+				FDDECB0D223AEA7000F9B7B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		FDE2F06521AD06EF007E6743 /* Build configuration list for PBXProject "SHMultiSlider" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -492,15 +511,6 @@
 			buildConfigurations = (
 				FDE2F08021AD06EF007E6743 /* Debug */,
 				FDE2F08121AD06EF007E6743 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FDE2F08221AD06EF007E6743 /* Build configuration list for PBXNativeTarget "SHMultiSliderTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FDE2F08321AD06EF007E6743 /* Debug */,
-				FDE2F08421AD06EF007E6743 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

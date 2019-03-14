@@ -16,9 +16,9 @@ import Cocoa
     @IBOutlet public var sourceLabel: NSTextField!
     @IBOutlet public var targetLabel: NSTextField!
     @IBOutlet public var outputValue: NSTextField!
-    @IBOutlet var gatedIndicator: TextButton!
-    @IBOutlet var reverseIndicator: TextButton!
-    @IBOutlet var ring: SHKnobRing!
+    @IBOutlet public var gatedIndicator: TextButton!
+    @IBOutlet public var reverseIndicator: TextButton!
+    @IBOutlet public var ring: SHKnobRing!
     
     private let bundle = Bundle(for: SHMultiSlider.self)
     
@@ -332,7 +332,7 @@ public extension SHMultiSliderDelegate {
     }
 }
 
-internal class TextButton: NSTextField {
+public class TextButton: NSTextField {
     override public func mouseDown(with event: NSEvent) {
         super.mouseDown(with: event)
         self.sendAction(self.action, to: self.target)

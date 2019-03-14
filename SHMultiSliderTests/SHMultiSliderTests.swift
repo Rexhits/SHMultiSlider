@@ -2,17 +2,19 @@
 //  SHMultiSliderTests.swift
 //  SHMultiSliderTests
 //
-//  Created by WangRex on 11/27/18.
-//  Copyright © 2018 WangRex. All rights reserved.
+//  Created by WangRex on 3/14/19.
+//  Copyright © 2019 WangRex. All rights reserved.
 //
 
 import XCTest
-@testable import SHMultiSlider
+import SHMultiSlider
 
 class SHMultiSliderTests: XCTestCase {
 
+    var slider = SHMultiSlider()
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
+        
     }
 
     override func tearDown() {
@@ -28,6 +30,10 @@ class SHMultiSliderTests: XCTestCase {
         // This is an example of a performance test case.
         self.measure {
             // Put the code you want to measure the time of here.
+            for _ in 0 ..< 10000 {
+                slider.setValue(100)
+            }
+            
         }
     }
 

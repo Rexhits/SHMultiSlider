@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "SHMultiSlider"
-  s.version      = "0.3.7"
+  s.version      = "0.3.8"
   s.summary      = "[macOS] Knob with 2 sliders"
 
   # This description is used to generate tags and improve search results.
