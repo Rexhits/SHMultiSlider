@@ -102,6 +102,7 @@ import Cocoa
     /// Value displayed on screen
     internal (set) var displayValue: Float = 0
     
+    
     var lowerClicked = false
     var upperClicked = false
     
@@ -186,44 +187,35 @@ import Cocoa
     internal var upperAngle: CGFloat = CGFloat(-Double.pi * 3 / 8).radiansToDegrees
     internal var valueAngle: CGFloat = CGFloat(Double.pi * 11 / 8).radiansToDegrees
     
-    
+
     internal func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
         //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
-        CATransaction.begin()
-        CATransaction.setDisableActions(true)
+//        CATransaction.begin()
+//        CATransaction.setDisableActions(true)
+        CATransaction.setAnimationDuration(0.01)
         toPointerLayer.setAffineTransform(CGAffineTransform(rotationAngle: newAngle))
-        CATransaction.commit()
+//        CATransaction.commit()
     }
     
     internal func updateValueLayer() {
-        let bounds = trackLayer.bounds
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let offset = Swift.max(boundPointerWidth, ringWidth / 2)
-        let radius = Swift.min(bounds.width, bounds.height) / 2 - offset
-        let path = NSBezierPath()
-        let newValue = calculateValue(displayValue).angle
+        CATransaction.setAnimationDuration(0.01)
         if displayValue < lowerBound {
-            valueLayer.path = nil
+            valueLayer.strokeEnd = 0
         } else {
-            let end = displayValue < upperBound ? newValue.radiansToDegrees : upperAngle.radiansToDegrees
-            path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
-            valueLayer.path = path.cgPath
+            valueLayer.strokeStart = CGFloat(lowerBound / max)
+            valueLayer.strokeEnd = displayValue < upperBound ? CGFloat(displayValue / max) : CGFloat(upperBound / max)
         }
     }
     
-    internal func updateValueLayer(_ newValue: CGFloat) {
-        let bounds = trackLayer.bounds
-        let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let offset = Swift.max(boundPointerWidth, ringWidth / 2)
-        let radius = Swift.min(bounds.width, bounds.height) / 2 - offset
-        let path = NSBezierPath()
-        if displayValue < lowerBound {
-            valueLayer.path = nil
+    internal func updateValueLayer(_ newValue: Float) {
+        CATransaction.setAnimationDuration(0.01)
+        if newValue < lowerBound {
+            valueLayer.strokeEnd = 0
         } else {
-            let end = displayValue < upperBound ? newValue.radiansToDegrees : upperAngle.radiansToDegrees
-            path.appendArc(withCenter: center, radius: radius, startAngle: lowerAngle.radiansToDegrees, endAngle: end, clockwise: true)
-            valueLayer.path = path.cgPath
+            valueLayer.strokeStart = CGFloat(lowerBound / max)
+            valueLayer.strokeEnd = newValue < upperBound ? CGFloat(newValue / max) : CGFloat(upperBound / max)
         }
+        
         delegate?.knobValueUpdated(value: Int(displayValue))
     }
     
@@ -259,9 +251,9 @@ import Cocoa
         } else {
             valueLayer.strokeColor = tintColor.cgColor
         }
-
+        
         displayValue = cal.value
-        updateValueLayer(cal.angle)
+        updateValueLayer(cal.value)
         
     }
     
@@ -309,6 +301,16 @@ import Cocoa
         
     }
     
+    internal func drawValueLayerPath() {
+        let bounds = trackLayer.bounds
+        let center = CGPoint(x: bounds.midX, y: bounds.midY)
+        let offset = Swift.max(boundPointerWidth, ringWidth / 2)
+        let radius = Swift.min(bounds.width, bounds.height) / 2 - offset
+        let path = NSBezierPath()
+        path.appendArc(withCenter: center, radius: radius, startAngle: startAngle, endAngle: endAngle, clockwise: true)
+        valueLayer.path = path.cgPath
+    }
+    
     internal func updatePointerLayerPath() {
         let bounds = trackLayer.bounds
         
@@ -331,6 +333,7 @@ import Cocoa
         trackLayer.position = CGPoint(x: bounds.midX, y: bounds.midY)
         updateTrackLayerPath()
         updateValueLayer()
+        drawValueLayerPath()
         lowerboundPointerLayer.bounds = trackLayer.bounds
         lowerboundPointerLayer.position = trackLayer.position
         upperboundPointerLayer.bounds = trackLayer.bounds
@@ -365,6 +368,7 @@ import Cocoa
         lowerboundPointerLayer.shouldRasterize = true
         upperboundPointerLayer.shouldRasterize = true
         valuePointerLayer.shouldRasterize = true
+        drawValueLayerPath()
         layer?.addSublayer(trackLayer)
         layer?.addSublayer(valueLayer)
         layer?.addSublayer(lowerboundPointerLayer)
@@ -431,13 +435,13 @@ import Cocoa
             guard value < upperBound else {return}
             setLowerBoundValue(value)
             setValue(displayValue)
-            updateValueLayer(valueAngle)
+            updateValueLayer()
             delegate?.knobBoundsUpdated(lower: CGFloat(lowerBound), upper: CGFloat(upperBound))
         } else if upperClicked {
             guard value > lowerBound else {return}
             setUppderBoundValue(value)
             setValue(displayValue)
-            updateValueLayer(valueAngle)
+            updateValueLayer()
             delegate?.knobBoundsUpdated(lower: CGFloat(lowerBound), upper: CGFloat(upperBound))
         }
     }
