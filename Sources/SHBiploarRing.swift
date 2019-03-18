@@ -56,14 +56,14 @@ public class SHBipolarRing: SHKnobRing {
     }
     
     override func updateValueLayer(_ newValue: Float) {
-        CATransaction.setAnimationDuration(0.01)
+        CATransaction.setDisableActions(true)
         valueLayer.strokeEnd = CGFloat(lowerBound / max)
         valueLayer2.strokeStart = CGFloat(upperBound / max)
         delegate?.knobValueUpdated(value: Int(displayValue))
     }
     
     override func updateValueLayer() {
-        CATransaction.setAnimationDuration(0.01)
+        CATransaction.setDisableActions(true)
         valueLayer.strokeEnd = CGFloat(lowerBound / max)
         valueLayer2.strokeStart = CGFloat(upperBound / max)
     }

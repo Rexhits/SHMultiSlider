@@ -191,14 +191,13 @@ import Cocoa
     internal func setPointerAngle(_ newAngle: CGFloat, animated: Bool = false, _ toPointerLayer: CAShapeLayer) {
         //        toPointerLayer.transform = CATransform3DMakeRotation(newAngle, 0, 0, 1)
 //        CATransaction.begin()
-//        CATransaction.setDisableActions(true)
-        CATransaction.setAnimationDuration(0.01)
+        CATransaction.setDisableActions(true)
         toPointerLayer.setAffineTransform(CGAffineTransform(rotationAngle: newAngle))
 //        CATransaction.commit()
     }
     
     internal func updateValueLayer() {
-        CATransaction.setAnimationDuration(0.01)
+        CATransaction.setDisableActions(true)
         if displayValue < lowerBound {
             valueLayer.strokeEnd = 0
         } else {
@@ -208,7 +207,7 @@ import Cocoa
     }
     
     internal func updateValueLayer(_ newValue: Float) {
-        CATransaction.setAnimationDuration(0.01)
+        CATransaction.setDisableActions(true)
         if newValue < lowerBound {
             valueLayer.strokeEnd = 0
         } else {
